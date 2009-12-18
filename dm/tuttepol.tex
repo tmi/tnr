@@ -1,0 +1,139 @@
+\input kgmac
+
+\topic{Tutteùv polynom}
+
+Budeme hledat souvislosti mezi rùznými rekurzivnì popsatelnými charakteristikami 
+grafu (rekurzí zde budeme rozumìt odebrání hrany/kontrakci hrany se zachováním 
+smyèek a paralelních hran). Ponejprv uva¾me poèet napnutých lesù:
+
+{\leftskip33pt\vglue8pt\parskip0pt
+	\itm pro $E(G) = \es$ je $t_G = 1$
+	\itm pro $e$ most je $t_G = 2\cdot t_{G-e}$
+	\itm pro $e$ smyèku je $t_G = t_{G-e}$
+	\itm pro $e$ jinak je $t_G = t_{G-e} + t_{G/e}$
+
+}
+
+Z kombinatorického významu je vidìt, ¾e odebírání/kontrakce hrany je asociativní, 
+tedy nezávisí na poøadí v jakém hrany odebírám, v¾dy dostanu to samé. Podobnì 
+lze popsat i tzv. {\it chromatický polynom} $c_G(x)$, udávající poèet 
+obarvení $G$ u¾ívající $x$ barev. Netriviální bude úvaha pouze pro most. 
+Budou nám vadit pouze ta obarvení komponent, která vrcholùm mostu $u,v$ pøiøadí 
+stejnou barvu. V¹imnu si ale, ¾e ze v¹ech obarvení $c_{G/e}(x)$ jich právì 
+$c_{G/e}(x) / x$ pøiøadí barvu 1 vrcholu $u$, podobnì z tìchto jich právì 
+$c_{G/e}(x) / x^2$ pøiøadí barvu 1 obìma vrcholùm.
+
+{\leftskip33pt\vglue8pt\parskip0pt
+	\itm pro $E(G) = \es$ je $c_G(x) = x^n$
+	\itm pro $e$ most je $c_G(x) = c_{G-e}(x) - x\cdot(c_{G-e}(x) / x^2) = (x-1)/x 
+		\cdot c_{G-e}(x)$
+	\itm pro $e$ smyèku je $c_G(x) = 0 = 0\cdot t_{G-e}$
+	\itm pro $e$ jinak je $c_G(x) = c_{G-e}(x) - c_{G/e}(x)$
+
+}
+
+Opìt na základì kombinatorické interpretace usuzujeme asociativitu odebírání/
+kontrakcí; a tedy $c_G(x)$ je nìjaký polynom (s celoèíselnými koeficienty) v 
+$x$. Úvaha nás vede k definici termínu {\it universální polynom} $U_G(\alpha ,\beta ,\gamma ,\delta ,\varepsilon )$, 
+který je rekurzí popsán následovnì:
+
+{\leftskip33pt\vglue8pt\parskip0pt
+	\itm pro $E(G) = \es$ je $U_G = \alpha ^{|V|}$
+	\itm pro $e$ most je $U_G = \beta U_{G-e}$
+	\itm pro $e$ smyèku je $U_G = \gamma U_{G-e}$
+	\itm pro $e$ jinak je $U_G = \delta U_{G-e} + \varepsilon U_{G/e}$
+
+}
+
+K ospravedlnìní slova polynom v názvu a samotné definice vùbec je tøeba ovìøit 
+asociativitu. K tomuto zaveïme termín {\it Tutteùv polynom} $T_G(x,y)$, co¾ bude 
+universální polynom s koeficienty $(1,x,y,1,1)$. Nech» také $\kappa (G)$ popisuje 
+poèet komponent souvislosti grafu $G$. Tvrdíme následující:
+$$U_G = \alpha ^{\kappa (G)}\cdot \delta ^{|E|-|V|+\kappa (G)} \cdot \varepsilon ^{|V|-\kappa (G)} \cdot T_G\left({\alpha \beta \over \varepsilon },
+	{\gamma \over \delta }\right)$$
+Dùkaz probìhne indukcí, dle poètu hran. Pro $E(G) = \es$ jsou v¹echny èleny a¾ na 
+první rovné nule a rovnost platí, nebo» $\kappa (G) = |V|$. Buï dále $e$ most. Pak 
+$$\eqalign{ U_G &= \beta U_{G-e} = \beta \cdot \alpha ^{\kappa (G)+1} \cdot \delta ^{|E_G|-|V_G|+\kappa (G)} \cdot 
+	\varepsilon ^{|V|-\kappa (G)-1}\cdot T_{G-e}\left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right) =\cr 
+	&= {\alpha \beta \over \varepsilon }  \cdot \alpha ^{\kappa (G)}\cdot \delta ^{|E|-|V|+\kappa (G)} \cdot \varepsilon ^{|V|-\kappa (G)}\cdot 
+	T_G\left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right)\cdot {\varepsilon \over \alpha \beta }
+}$$
+
+Podobnì, buï $e$ smyèka. Pak 
+$$ U_G = \gamma U_{G-e} = \gamma \cdot \alpha ^{\kappa (G)}\cdot \delta ^{|E|-1-|V|+\kappa (G)}\cdot \varepsilon ^{|V|-\kappa (G)}
+	\cdot T_G\left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right)\cdot {\delta \over \gamma }$$
+Nakonec, pro $e$ jinak je
+$$\eqalign{ U_G = \alpha ^{\kappa (G)} \cdot \Biggl( & \delta \cdot \delta ^{|E|-1-|V|+\kappa (G)} \cdot 
+		\varepsilon ^{|V|-\kappa (G)} \cdot T_{G-e}\left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right) \cr + 
+	&\varepsilon \cdot \delta ^{|E|-1-|V|+1+\kappa (G)} \cdot \varepsilon ^{|V| -1 - \kappa (G)} \cdot T_{G/e} 
+		\left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right)\Biggr) = \cr 
+	= &\alpha ^{\kappa (G)} \cdot \delta ^{|E|-|V|+\kappa (G)} \cdot \varepsilon ^{|V|-\kappa (G)}\cdot \Biggl( 1 
+	\cdot T_{G-e} \left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right) + 1 \cdot T_{G/e}
+	\left({\alpha \beta \over \varepsilon },{\gamma \over \delta }\right)\Biggr)
+}$$
+{\hfill $\spadesuit$}
+\bigskip
+
+Tedy korektnost definice tìchto dvou polynomù je ekvivalentní. Nyní nalezneme 
+kombinatorickou interpretaci pro Tutteùv polynom. Je toti¾
+$$T_G(x,y) = \sum_{Z\subseteq E(G)} (x-1)^{\kappa (Z) - \kappa (G)} \cdot (y-1)^{|Z|-
+	|V(G)|+\kappa (Z)}$$
+Dokazujme opìt indukcí. Pro $E(G)=\es$ je $T_G(x,y) = 1^n = (x-1)^0 \cdot 
+	(y-1)^0$ (pro úèely rovnosti zaveïme $0^0 = 1$). Je-li $e$ most, pak 
+$$\eqalign{ T_G(x,y) =& x\sum_{Z\subseteq E(G-e)} (x-1)^{\kappa (Z) - \kappa (G)-1}\cdot (y-1)^
+	{|Z|-|V(G)|+\kappa (Z)} = (x-1)\sum_{Z\subseteq E(G-e)} ... + \sum_{Z\subseteq 
+	E(G-e)} =\cr =& \sum_{Z\subseteq E(G-e)}... + \sum_{Z\subseteq E(G-e)} 
+	(x-1)^{\kappa (Z\cup e) + 1 - \kappa (G) - 1} \cdot (y-1)^{|Z\cup e|-1-|V(G)|+\kappa (Z\cup 
+	e)+1}
+}$$
+Je-li $e$ smyèka, tak
+$$\eqalign{ T_G(x,y) =& y\sum_{Z\subseteq E(G-e)} (x-1)^{\kappa (Z) - \kappa (G)} \cdot (y-1)^{|Z|
+	-|V(G)|+\kappa (Z)} =\cr =& \sum_{Z\subseteq E(G-e)}... + (y-1)\sum_{Z\subseteq E(G-e)}
+	(x-1)^{\kappa (Z\cup e)-\kappa (G)} \cdot (y-1)^{|Z\cup e| - 1 - |V(G)| + \kappa (Z\cup e)}
+}$$
+Nakonec, pro $e$ jinak je
+$$\eqalign{ T_G(x,y) =& \sum_{Z\subseteq E(G-e)} (x-1)^{\kappa (Z) - \kappa (G)} \cdot (y-1)^{
+	|Z|-|V(G)|+\kappa (Z)}\ +\cr+&\sum_{Z\subseteq E(G/e)} (x-1)^{\kappa (Z) - \kappa (G)}\cdot 
+	(y-1)^{|Z|-|V(G/e)|+\kappa (Z)}\ =\cr
+	=& \sum_{Z\subseteq E(G-e)}... + \sum_{Z\subseteq E(G/e)} (x-1)^{\kappa (Z\cup e) - \kappa (G)}
+	\cdot (y-1)^{|Z\cup e|-1-|V(G)|+1+\kappa (Z\cup e)}
+}$$
+{\hfill $\spadesuit$}
+\bigskip
+
+Uveïme si nyní nìkteré zajímavé pøíklady Tutteova polynomu. 
+
+{\leftskip33pt\vglue8pt\parskip0pt
+	\itm $T(2,2) = 2^|E(G)|$ -- z interpretace, ka¾dá $Z$ pøispìje jednièkou
+	\itm $T(2,1) = |\{Z|Z$ je les$\}|$ -- z interpretace, jednièkou pøispìjí takové 
+		$Z$, ¾e $|Z|-|V(G)|+\kappa (Z)=0$
+	\itm $T(1,2) = \#$ souvislých podgrafù napnutých na komponentách -- z interpretace
+	\itm $T(2,0) = \#$ acyklických orientací -- z rekursivní definice
+	\itm $T(1,0)$ je pro $G$ souvislý je $\#$ acyklických orientací s právì jedním 
+		stokem $v$ (kde $v$ je libovolné fixní) -- z rekursivní definice
+	\itm $T(1,1) =\#$ koster (pro $G$ souvislé) -- z rekursivní definice
+	\itm $T(0,2) =\#$ totálnì cyklických orientací (tj. ka¾dá hrana je v alespoò jednom 
+		cyklu) -- z rekursivní definice. (Pro normální hranu je tøeba rozmyslet -- uvá¾íme 
+		orientace grafu bez odebírané $e$, které mohou být totálnì acyklické po pøidání 
+		a orientaci $e$ jen v jednom smìru, nebo v obou orientacích $e$. Ty z první skupiny 
+		mám zapoèítat jednou, ty druhé dvakrát. Ale kontrahuji-li hranu, dostávám takové 
+		kde je hrana $e$ \uv{v obou smìrech}, a tedy poèítám ka¾dou skupinu jednou; naopak 
+		vynechám-li hranu, pak poèítám ty u které na orientaci $e$ nezále¾í -- proto¾e ty 
+		jsou nutnì totálnì cyklické i bez $e$, staèí pøedpokládat spor a najít cyklus.)
+
+}
+
+\cl{Pozorování:}{$(\forall G = G_1\cup G_2)(|V(G_1\cap G_2)| \leq 1 \imply T_G(x,y) = 
+	T_{G_1} (x,y) \cdot T_{G_2} (x_y)$}
+$$\eqalign{T_{G_1}(x,y)\cdot T_{G_2}(x,y) &= \sum_{F_1\subseteq E_1,F_2\subseteq E_2} (x-1)^{\kappa (F_1) - 
+	\kappa(E_1) + \kappa(F_2) - \kappa(E_2)} \cdot (y-1)^{ |F_1| + |F_2| - |G_1| - |G_2| 
+	+ \kappa(F_1) + \kappa(F_2)}\cr
+	&= \sum_{F\subseteq E} (x-1)^{\kappa(F) - \kappa(E)} \cdot 
+	(y-1)^{\kappa(F) + |F| - |G|}\ ,}$$
+pøièem¾ v poslední rovnosti se v pøípadì nedisjunktnosti $G_1$ a $G_2$ objeví v exponentech 
+navzájem po¾eroucí se $+1,-1$.\qed
+
+\cl{Pozorování:}{$T_G(x,y) = T_{G'}(y,x)$, kde $G'$ je duál rovinného $G$}
+staèí si uvìdomit, ¾e v rekursivní definici se operace v rovinném grafu projeví inversnì 
+	v jeho duálu.\qed
+\end

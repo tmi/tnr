@@ -1,0 +1,68 @@
+\input kgmac
+
+\topic{Cauchy--Frobeniovo lemma \& P\'olyova enumerace}
+Uva¾me objekty ({\it konfigurace}) reprezentované pomocí funkcí 
+$f:\ D\to R$, kde $D$ je 
+mno¾ina {\it pozic\/} a $R$ mno¾ina {\it hodnot}. Nad tìmito objekty 
+lze definovat grupu isomorfismù $\cal G$, její¾ prvky jsou permutace 
+mno¾iny $D$ -- $x,y\in D,\ x \sim y \rdef (\exists \pi \in {\cal G})(\pi x = y)$.
+Bude nás zajímat poèet a¾ na isomorfismus rùzných objektù z $R^D$.
+
+Jak známo, $\sim$ je relace ekvivalence, znaème tedy $O_i = [x]$ pøíslu¹nou 
+tøídu alias {\it orbitu}; pro $x,y\in R^D$ definujeme $S(x,y) = \{\pi \in 
+{\cal G}| \pi x = y\}$, pøièem¾ $S(x,y)\neq \es \eqv y\in [x]$. Mno¾ina 
+automorfismù $S(x,x) = S(x)$ se zve {\it stabilizátor}. Pov¹imnìme si, 
+¾e $(\forall x,y)(S(x,y)\neq \es \imply |S(x)| = |S(x,y)|)$: buï $\pi \in S(x,y)$, 
+pak $S(x,y) = \{\rho |\rho x = y\} = \{\rho |\rho x = \pi x\} = \{\rho |\pi '\rho x = x\}$, a ka¾dá dvojice 
+$\pi '\rho $ jednoznaènì odpovídá automorfismu $x$. Zároveò je pro fixní $x$ ka¾dá 
+$\pi \in {\cal G}$ v nìjaké $S(x,y)$ -- konkrétnì v $S(x,\pi x)$; a $\cal G$ lze 
+rozlo¾it podle $S(x,y\in [x])$ na stejnì velké (zjevnì disjunktní) mno¾iny
+a platí tedy rovnice $|{\cal G}| = |[x]||S(x)|$.
+
+\subtopic{Cauchy--Frobeniovo lemma\/} (zvané té¾ {\it Burnsideovo lemma\/}) 
+vyu¾ívá pojmu {\it váha}, 
+co¾ je ohodnocující funkce $w:R^D\to A$ kde $A$ je nìjaká mno¾ina hodnot 
+(Abelovská grupa), která je konstantní na orbitách ($y\in[x]\imply w(x) = 
+w(y) = w([x])$). Dále buï $F(\pi ) = \{x\in R^D|\pi x = x\}$ mno¾ina v¹ech prvkù 
+pro které je $\pi $ automorfní, zjevnì je $x\in F(\pi )\eqv \pi \in S(x)$. Samotné 
+lemma pøedstavuje tuto rovnici:
+$$\eqalign{
+	&\sum_{\pi \in {\cal G}} \sum_{x\in F(\pi )} w(x) = \sum_{x\in R^D} \sum_{\pi \in S(x)} 
+	w(x) = \sum_{i} \sum_{x\in O_i} \sum_{\pi \in S(x)} w(x) = \cr =& 
+	\sum_{i} w(O_i) \sum_{x\in O_i} \sum_{\pi \in S(x)} 1 = 
+	\sum_{i} w(O_i) |[x]||S(x)| = |{\cal G}|\sum_{i} w(O_i)
+}$$
+Zvolíme-li $\omega (x) = 1$, pak lemma ukazuje vztah mezi poètem pevných bodù 
+permutací a poètem orbit -- tedy poètem a¾ na isomorfismus rùzných objektù.
+
+\subtopic{P\'olyova enumerace\/} je obecnìj¹í ne¾ pøedchozí lemma, umo¾òuje toti¾ 
+poèítat orbity nìjaké specifické vlastnosti. Velká èást charakteristiky se 
+skrývá v cyklech na $D$ permutací z $\cal G$, oznaème pro budoucnost $c_k(\pi )$ 
+poèet cyklù délky $k$ permutace $\pi $. 
+%V pøedchozím lemmatu bylo vlastnì $|F(\pi )| = c_1(\pi )$. 
+{\it Cyklická suma\/} grupy $\cal G$ je polynom $$Z({\cal G},a_{1..d})
+= |{\cal G}|^{-1}\sum_{\pi \in{\cal G}} \prod_{k=1}^d a_k^{c_k(\pi )}$$
+Váhu definujeme nyní o nìco slo¾itìji, $w:R\to A$ je tentokrát definována pro 
+jednotlivé ohodnocení elementù, speciálnì $s_k \rdef \sum_{r\in R} w(r)^k$. 
+Váha celé konfigurace $f\in R^D$ je pak produkt ohodnocení jednotlivých pozic, 
+tedy $w(f) = \prod_{p\in D} w(f(a))$. Opìt mají dvì konfigurace z jedné orbity 
+stejnou váhu --- proto¾e se li¹í pouze poøadím elementù --- a dává tedy 
+smysl definovat $w(O_i)$.
+
+®ádanou informací je souèet orbit, $S\rdef \sum_i w(O_i)$. Enumerace tvrdí: 
+$S = Z({\cal G},s_{1..d})$. Z pøedchozího lemmatu plyne, ¾e $|{\cal G}|S = 
+\sum_{\pi \in{\cal G}}\sum_{f\in F(\pi )} w(f)$. Ov¹em $F(\pi ) = \{f|f$ je konstantní 
+na cyklech $\pi \}$, tedy pro cykly $\xi _{i\in m}$ z $\pi $ je $F(\pi ) = \{f|
+f(d\in D) = r_i \in R \Leftarrow d\in \xi _i (\forall i\in m)\}$. Lze tedy 
+psát $$\sum_{f\in F(\pi )} w(f) = \sum_{\vl r_i \vr \in R^m} \prod_i^m w(r_i)^{|\xi _i|}
+= \prod_i^m \sum_{r\in R} w(r)^{|\xi _i|}
+= \prod_k^d \left(\sum_{r\in R} w(r)^k \right)^{c_k(\pi )} = \prod_k^d s_k^{c_k(\pi )}$$
+
+\subtopic{Nóta o vytvoøujících funkcích.} Pólyovic enumerace je ve skuteènosti o nìco 
+obecnìj¹í, lze ji formulovat následovnì: $\sum_k C_k t^k = Z({\cal G}, c(t), c(t^2), ...)$, 
+kde $C_k$ je poèet orbit váhy $k$ (váha orbity je váha jejího libovolného prvku), 
+$c(t) = \sum_k c_kt^k$ je vytvoøující funkce, kde $c_k$ poèet elementù váhy $k$.
+
+
+
+\end

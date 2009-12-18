@@ -1,0 +1,91 @@
+% extremalni grafy
+% verse 1, 18.12.2009
+% vojta tuma
+\input kgmac
+
+\topic{Extremální grafy}
+
+\subtopic{Vìta o sluneènici} -- mìjme mno¾inu $X$ a systém ${\cal A} \subseteq 
+	{X\choose 2}$ takový, ¾e $\forall x,y \in {\cal A}\ x\cap y\neq \es$. Pak 
+	pro $|X|\geq 4$ je $|A|\leq n-1$. Tato vìta popisuje jak vypadají grafy ve 
+	kterých ka¾dé dvì hrany mají spoleèný vrchol -- jako sluneènice. Její 
+	dùkaz dostaneme z následující, obecnìj¹í vìty:
+\vskip-\parskip
+
+\subtopic{Erd\" os--Ko--Radova vìta} -- $|X|=n,\ n\geq 2r,\ {\cal A}\subseteq 
+	{X\choose r},\ \forall y,z\in {\cal A}\ y\cap z \neq 0\imply |A| \leq 
+	{n-1\choose r-1}$
+
+\str Dùkaz: Mìjme systém $\cal A$, a dvìma zpùsoby poèítejme poèet dvojic $(S,C)$, 
+	kde $S$ je nìjaký prvek z $\cal A$ a $C$ je nìjaké cyklické uspoøádání 
+	mno¾iny $X$ takové, ¾e prvky $S$ v nìm tvoøí interval (cyklické uspoøádání 
+	znamená naskládání prvkù do posloupnosti, u které ztoto¾níme první 
+	a~poslední prvek).
+$$\eqalign{
+	(S,C) &= |{\cal A}|\cdot r! \cdot (n-r)! \hbox{ -- pro ka¾dý prvek spoèítáme 
+		mo¾ná uspoøádání}\cr
+	(S,C) &\leq (n-1)!\cdot r \hbox{ -- zvolíme uspoøádání, a ptáme se kolik 
+		existuje prvkù, tak aby se pøekrývali}
+}$$
+	V první rovnosti pouze permutujeme prvky z $S$ a prvky z $X\bs S$, v druhém 
+	je tøeba na kruhu skládat ta $S$ za sebe, aby zde stále existoval prùnik 
+	vynucený podmínkou na $\cal A$; zde je nutno $n\geq 2r$. Horní odhad proto, 
+	¾e nevíme zda v¹echny takové $S$ v $\cal A$ jsou. Ka¾dopádnì, $|{\cal A}|
+	\leq (n-1)! / (r-1)!\cdot (n-1)! = {n-1\choose r-1}$.
+	
+\subtopic{Turánova vìta}. Buï $\ex(n,H)$ nejvìt¹í mo¾ný poèet hran grafu $G$ na 
+	$n$ vrcholech takový, aby $G$ neobsahoval $H$ jako podgraf. {\it Turánùv 
+	graf\/} na $n$ vrcholech stupnì $k$, znaèeno ${\cal T}_k(n)$, je 
+	úplný $k$-partitní graf; dále $t_k(n)$ je poèet hran pøíslu¹ného grafu. 
+	Samotná {\hanw Turánova vìta} øíká, ¾e neobsahuje-li graf $G$ jako podgraf
+	$K_{k+1}$ a má alespoò $t_k(n)$ hran, pak je isomorfní ${\cal T}_k(n)$ a 
+	má tedy právì $t_k(n) = \ex(n,K_{k+1})$ hran.
+
+\str Dùkaz: Buï $k\geq 2$, postupujme indukcí dle $n$. Je-li $n\leq k$, tak $t_n(n)$ 
+	je úplný graf na $n$ vrcholech a tvrzení jasnì platí. Je-li $n>k$, tak si 
+	v¹imnìme, ¾e $\delta (G)\leq \delta ({\cal T}_k(n)$ -- jinak by toti¾ 
+	ka¾dý vrchol $G$ mìl stupeò alespoò $k$ a $G$ by nutnì obsahoval 
+% tento argument je spatne, predelat na lemma: kazdych k vrcholu ma spolecneho souseda
+	$K_{k+1}$. Odeberme tedy z $G$ vrchol $x$ stupnì $\delta (G)$, 
+	pøíslu¹ný men¹í graf je isomorfní ${\cal T}_k(n-1)$. Pøidání $x$ 
+	zpìt pøidá ménì hran, ne¾ $t_k(n) - t_k(n-1)$, a tedy $G$ má ménì 
+	hran ne¾ ${\cal T}_k(n)$. Pøidáváme-li $x$ k $G\bs \{x\} \simeq 
+	{\cal T}_k(n-1)$, tak si v¹imnìme ¾e ka¾dá 
+	z $k$ partit je v $\cal T$ neprázdná, proto¾e $n-1\geq k$, a tedy 
+	s alespoò jednou paritou $x$ nelze spojit (jinak by vznikla $K_{k+1}$). 
+	Ale poèet hran $G$ maximalizujeme, kdy¾ pøídáme $x$ k nejmen¹í partitì 
+	-- co¾ u¾ udìlá $G$ isomorfní $\cal T$.
+
+\medskip
+\subtopic{Erd\" os--Stone} -- $(\forall k\geq 2)(\forall s\geq 1)(\exists \varepsilon 
+	> 0)(\exists N_0)(\forall n \geq N_0)(\forall G,\ |G| = n)$ je $\ex(G)\geq 
+	t_{k-1}(n) + \varepsilon n^2\imply G\supseteq K^s_k$. Slovy øeèeno, 
+	zvolím-li parametry $k$ a $s$, pak umím najít pro libovolnì malé $\varepsilon$ 
+	takové $N_0$, ¾e v¹echny vìt¹í grafy mající více hran ne¾ Turánùv graf 
+	$+\varepsilon n^2$ o $k-1$ partitách na $n$ vrcholech obsahují jako 
+	podgraf úplný $k$-paritiní graf o partitách velikosti $s$.
+
+\str Dùsledek: pro grafy s alespoò jednou hranou je 
+	$$\lim_{n\to \infty} \ex(n,H) {n\choose 2}^{-1} = {\chi(H) - 2 \over \chi(H) - 1}$$
+\str Lemma (pro dùkaz dùsledku): $\lim t_k(n){n\choose 2}^{-1} = {k-1\over k}$.
+
+\str Dùkaz (lemmatu (pro dùkaz dùsledku)):
+
+\str Dùkaz (dùsledku):  
+	Buï $k=\chi(H)$. V¹imnìme si, ¾e nutnì $H\not\subseteq {\cal T}_{k-1}(n)$ (proto¾e je 
+	$\chi({\cal T}_{k-1}(n)) = k-1$), a tedy $t_{k-1}(n) \leq \ex(n,H)$. Je ov¹em 
+	také $H\subset K^s_k$ (pro nìjaké dostateènì velké $s$), a tedy $\ex(n,H) \leq 
+	\ex(n,K^s_k)$. Tedy:
+	$$ t_{k-1}(n){n\choose 2}^{-1} \leq ex(n,H){n\choose 2}^{-1} \leq ex(n,K^s_k)
+	{n\choose 2}^{-1} < (t_{k-1}(n) + \varepsilon n^2){n\choose 2}^{-1}$$ 
+	kde poslední nerovnost plyne z obrácené implikace {\hanw Erd\" os--Stona}, 
+	je toti¾ $H\subset K^s_k$ a tedy $H\not \supseteq K^s_k$ (pro nìjaké 
+	$N_0$ a ka¾dé $n>N_0$, co¾ nás netrápí díky tomu ¾e limitíme). Ale ${n
+	\choose 2}^{-1}$ lze shora odhadnout 41\footnote{${}^{\vl 1\vr}$}{Ale také 43!}, 
+	a tedy onen èlen s $\varepsilon$ lze 
+	tlaèit k nule a z vìty o dvou policistech a lemmatu dostáváme výsledek.
+
+\subtopic{Vìta o minorech} -- $(\exists c\in \mft{R})(\forall k)(\forall G)(
+	|E(G)| \geq |V(G)|\cdot c \cdot k^2 \imply K_k \preceq G)$ (tedy $G$ 
+	obsahuje $K_k$ jako minor).
+\end

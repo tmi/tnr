@@ -1,0 +1,42 @@
+% kgmac
+% ver 1.0 to date 08.12.2009
+% created by vojta.tuma@gmail.com
+%zkratky
+\def\imply{\Rightarrow }				%implikace
+\def\eqv{\Leftrightarrow }				%ekvivalence
+\def\es{\emptyset }						%prazdna mnozina
+\def\bs{\backslash }					%zpetne lomitko
+\def\rdef{\; {\buildrel\rm def\over=} \; }	%definice
+\def\vl{\langle }						%znaceni vektoru
+\def\vr{\rangle }						
+\def\itm{\item{$\triangleright$}}		%polozka seznamu
+
+%fonty
+\font\heC = csb10 scaled \magstep 2
+\font\tiny = csr8
+\font\mnm = msbm10 \relax
+\font\hanw = csfi10
+%\font\bigf = cmbsy10 scaled \magstep 3
+\font\bigf = csdunh10 scaled \magstep 3
+\font\brm = cmr17
+
+\def\mft#1{ \hbox{\mnm #1}}
+\def\P{\mft{P}}
+\def\N{\mft{N}}
+\def\R{\mft{R}}
+\def\deg{\mathop{\tt deg}\nolimits}
+\def\ex{\hbox{\hanw ex}}
+
+%sazba
+\def\topic#1{\vglue 35pt plus 10pt \centerline{\bigf #1} \vglue 15pt minus 5pt}
+\def\subtopic#1{\vglue 15pt plus 10pt minus 10pt \par \hskip-10pt $\bullet$ {\hanw #1}}
+\def\smallpar{\vglue-10pt}
+\def\bul{\hskip-9pt $\bullet$ }
+\def\str{\hskip-9pt $\star$ }
+\baselineskip16pt
+\parindent0pt
+\parskip15pt plus 9pt minus 9pt
+\def\noskip{\vskip5pt\vskip-\parskip}
+
+\def\cl#1#2{\hskip-0.8em$\star${ \hanw #1} #2\vskip5pt\vskip-\parskip{\hanw Dùkaz:}}
+\def\qed{\hfill $\spadesuit$}
