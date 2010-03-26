@@ -1,0 +1,92 @@
+\chapter{Lecture 3}
+
+% uplne omezene prostory?
+% epsilon sit
+\tpc{Totally bounded spaces} Let $(M,\rho)$ be a metric space and 
+$\varepsilon>0$, then we call $N\subseteq M$ an $\varepsilon$-net 
+if $\forall x,y \in M,\ x\neq y \imply \rho(x,y) \geq \varepsilon$. 
+$(M,\rho)$ is {\it totally bounded}, if every $\varepsilon$-net 
+is finite. For example, $(0,1)$ is totally bounded for $\rho=|x-y|$,
+but $\R$ in such metrics is not (therefore, totally bounded space 
+is a topological term).
+\smallskip
+If $(M,\rho)$ is totally bounded, then any $N\subseteq M$ is totally 
+bounded too (clearly any $\varepsilon$-net in $N$ is still a net in 
+$M$). Also, if $(N,\rho_{N}),\ N\subseteq M$ is totally bounded,
+then $(\overline N,\rho_{\overline N})$ is totally bounded. To see 
+this, we take a $\varepsilon$-net $X$ in $\overline N$. For every 
+$x$ in $\overline N \bs N$ there is $x'$ in $N$ such that $\rho(x,x')
+< \varepsilon/3$ and call this substitued set $X'$. Such $x'$ is 
+unique for every $x$, since $X$ was an $\varepsilon$-net. Even 
+more, $\rho(x',y)\leq \varepsilon/3$ for any $y\in X'$ due to triangle 
+inequality. Therefore, we can assign to any $varepsilon$-net in 
+$\overline N$ a $\varepsilon$-net in $N$ of the same cardinality.
+\smallskip
+Let $(M_i,\rho_i)_{i\in \N}$ be a family of non-empty metric spaces,
+such that $\rho_i \leq 1$ for every $i$. Then $\prod_{i\in \N} 
+(M_i,\rho_i) = (M,\rho)$ is totally bounded iff $\forall i\in \N,\ 
+(M_i,\rho_i)$ is totally bounded.
+
+First, we prove the $\Leftarrow$. Let $(M_i,\rho_i)$ totally bounded 
+and $X$ any $\varepsilon$-net in $(M,\rho)$. We pick $i_0\in \N$ 
+such that $2^{-i_0} < \varepsilon/4$. Now, if $\overline x \neq 
+\overline y$, there is $j$ such that $\rho_j(x_j,y_j) \geq 
+\varepsilon / (2i_0)$ (if not, then $\sum_0^{i_0} \rho_j(x_j,y_j)/
+2^{j} < i_0 \cdot \varepsilon/(2i_0) = \varepsilon/2$ and 
+$\sum_{i_0 +1} \rho_j(x_j,y_j) / 2^j \leq \sum 1/2^j \leq 
+\varepsilon/4$, therefore $\rho(\overline x, \overline y) < 
+\varepsilon$). For all $i\in i_0$ we pick $\varepsilon/(8i_0)$-net
+% inclusivelly maximall
+$X_i$ in $M_i$, that is inclusively maximall. $\forall \overline x 
+\in X$ there is $f(\overline x)\in \prod X_i$, such that $\forall j\ 
+\rho(x_j, f(x)_j) \leq \varepsilon/(8i_0)$. 
+If $\overline x\neq \overline y$, then $f(\overline x) \neq f(\overline 
+y)$, because 
+there is $j,\ \rho(x_j,y_j)\geq \varepsilon /(2i_0)$ and therefore 
+$\rho(f(x)_j,f(y)_j) \geq \varepsilon /(4i_0)$, which means
+$f$ is injective mapping into finite set, proving that $X$ is 
+finite.
+
+To prove $\imply$, we just assume that there is $i_0$ such that 
+$(M_{i_0},\rho_{i_0})$ is not totally bounded. Then, there is 
+$\varepsilon$-net in $M_{i_0}$ that is infinite. Such net can 
+be extended to $M$ by picking arbitrary point in any $M_j$ 
+(because every $M_j$ is nonempty), and that is an infinite 
+$\varepsilon/2^{i_0}$-net in $M$. 
+\qed
+
+\smallskip
+$(M,\rho)$ is totally bounded iff $\forall \varepsilon >0$ 
+there is a finite cover of $M$ with open $\varepsilon$-balls.
+If there is a cover with open balls, then any net cannot contain more 
+than one point from any ball and cannot have greater cardinality 
+than the cover. On the other hand, if we put an $\varepsilon$-ball 
+around every point of some inclusivelly maximall $\varepsilon$-net, 
+we get cover of the same cardinality.
+% inclusivelly maximall
+
+\smallskip
+For totally bounded $(M,\rho)$ and $f:\ (M,\rho)\to (\R,|x-y|)$ uniformly 
+continous, $f[M]$ is bounded subset of $\R$. If it were unbounded, 
+we could assume that $\forall n\in \N\ \exists x_n\in X\ f(x_n)>n$. 
+But then, $\forall n,m\in \N\ |f(x_n)-f(x_m)|\geq 1$. Since $f$ is 
+uniformly convergent, $\rho(x,y)< \delta \imply |f(x)-f(y)|<1/2$; and 
+for finite cover of $M$ with $\delta/2$ balls we get that one ball 
+cannot contain more than one $x_n$.
+\qed
+
+\medskip
+% nekonecna varle hra
+
+%uplne metr spc
+\tpc{Complete metric spaces} We call a sequence $\{x_n|x_n \in M, n\in \N\}$ 
+a {\it Cauchy} sequence if $\forall \varepsilon>0\ \exists n_0\ \forall n,m\geq n_0
+\ \rho(x_n,x_m) < \varepsilon$. Metric space is {\it complete}, if every Cauchy 
+sequence is convergent. 
+
+In any metric space, a convergent sequence is automatically a Cauchy sequence. 
+We can take $n_0$ such that $\rho(x,x_n) < \varepsilon/2$, and $\rho(x_n,x_m) 
+\leq \rho(x_n,x) + \rho(x_m,x) < \varepsilon$.
+
+
+%jakysi shit o tom ze R je uplne?

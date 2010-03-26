@@ -1,0 +1,121 @@
+\chapter{Lecture 1}
+\medskip
+\tpc{Metric space} Let $M$ be a set and $\rho$ a function $M^2\to \R$. We 
+call $(M,\rho)$ metric space if $\rho$ satisfies following conditions:
+
+{\parindent0.5in\parskip6pt
+	\item{1)}$\rho(x,y) = 0 \eqv x=y$
+	\item{2)}$\rho(x,y) \geq 0$
+	\item{3)}$\rho(x,y) = \rho(y,x)$ {\it symmetry}
+	\item{4)}$\rho(x,y) \leq \rho(x,z) + \rho(y,z)$ {\it triangle inequality}
+
+}
+Such a function is called {\it metric} (or a distance function). However, it 
+shall be noted that conditions 1 and 4 imply the other two:
+$$\rho(x,x) \leq \rho(x,z) + \rho(x,z) \imply 0\leq 2\rho(x,z)$$
+$$\rho(x,y) \leq \rho(x,x) + \rho(y,x) \imply \rho(x,y) \leq \rho(y,x);\ 
+	\rho(y,x) \leq \rho(x,y) \hbox{ analogically.}$$
+We can make condition 4 even stronger: $\rho(x,y) \leq \max\{\rho(x,z),
+\rho(x,y)\}$, then $\rho$ is called {\it ultrametric}.
+
+\medskip
+
+Let us now introduce an example of a metric space. An {\it n-dimensional 
+euclidean space} is $(\R^n,\rho)$, where $\rho$ is defined as $\sqrt{ 
+\sum_{i=0}^n (x_i - y_i)^2}$. To be sure that it is really a metric space, 
+we should check all conditions 1-4. The only nontrivial is 4, though, so 
+we present only its proof: for $i=1..n$ let $a_i,b_i$ be arbitrary real 
+numbers. Then, for $1\leq i<j\leq n$ we have $0\leq (a_ib_j - a_jb_i)^2 = 
+a_i^2b_j^2 - 2a_ib_ja_jb_i + a_j^2b_i^2$, therefore $2 a_ib_ja_jb_i \leq 
+a_i^2b_j^2 + a_j^2b_i^2$. If we sum these inequalities for all $i,j$; we 
+get:
+$$\eqalign{
+	2\cdot\sum_{1\leq i<j\leq n} a_ib_ja_jb_i &\leq \sum_{1\leq i<j \leq n} 
+	a_i^2b_j^2 + a_j^2b_i^2\cr
+	\sum_{i=1..n,j=1..n,i\neq j} a_ib_ja_jb_i &\leq \sum_{i=1..n,j=1..n,i\neq
+	j} a_i^2b_j^2\cr
+	\sum a_ib_ja_jb_i + \sum_{i=1..n} a_i^2b_i^2 &\leq \sum a_i^2b_j^2 + \sum 
+	_{i=1..n} a_i^2b_i^2\cr
+	\left(\sum_{i=1..n} a_ib_i\right)^2 &\leq \sum_{i=1..n} a_i^2\sum_{j=1..n}
+	b_j^2\hbox{.}\cr
+}$$
+This inequality is usually called {\it Cauchy-Schwarz}'s. After taking the square 
+root of the inequality and multiplying it by two, we obtain $2\sum_{i=1..n} 
+a_ib_i \leq 2|\sum_{i=1..n} a_ib_i| \leq 2\sqrt{\sum_{i=1..n}a_i^2}\sqrt{
+\sum_{i=1..n}b_i^2}$. But that can be rewritten as 
+$$\sum_{i=1..n} (a_i + b_i)^2 \leq \left(\sqrt{\sum_{i=1..n} a_i^2} + 
+	\sqrt{\sum_{i=1..s} b_i^2 }\right)^2\hbox{,}$$ 
+and taking the square root again and setting $a_i=x_i - z_i,\ b_i = z_i - y_i$ 
+gives us desired triangle inequality.
+
+\bigskip
+
+\tpc{Open and closed sets} In a metric space $(M,\rho)$ we use call $\inf\{
+\rho(x,y)|y\in Y\subseteq M\}$ the {\it distance of x to the set} $Y$ and write 
+it as $\rho(x,Y)$. A subset $X$ of $M$ is a {\it closed set}, if $\{x|x\in M 
+\wedge \rho(x,X) = 0\}\subseteq X$. A subset $X$ of $M$ is an {\it open set}, if 
+its complement $M\bs X$ is a closed set. A {\it closure} of the set X is a 
+set $\overline X = \{ x\in M|\rho(x,X)=0$. Clearly $X\subseteq \overline X$, 
+and $X = \overline X$ iff $X$ is closed.
+
+\medskip
+
+Closed set can be defined in an equivalent way: $\bigcap\{ Y
+\subseteq M| Y\supseteq X \wedge Y\hbox{ is closed}\}$. Let us prove that this
+definition is equivalent to the previous one (for defintion's sake, $\bigcap 
+\emptyset = M$). First, note that $\overline X$ is closed: if $\rho(x,\overline 
+X) = 0$, then there is $y\in \overline X$ so that $\rho(x,y) = 0$; and $z \in 
+X$ so that $\rho(y,z) = 0$, triangle inequality gives us $\rho(x,X) = 0$
+and by definiton of closure is $x$ in $\overline X$. Therefore, $\bigcap\{Y\}
+\subseteq \overline X$. On the other hand, if $x$ is in $\overline X$, then 
+by the definiton of closure $\rho(x,X) = 0$ which means that $\rho(x,Y) = 0$ 
+for all $Y\in \bigcap\{Y\}$ (because $Y$ is superset of $X$, and distance can 
+get only smaller by taking a superset). But all these $Y$ are closed, so $x\in 
+Y$ and $\overline X \subseteq \bigcap \{Y\}$.
+
+\medskip
+
+As one can easily see, $M$ and $\emptyset$ are both closed and open. But we 
+can tell more about closed and open sets. If $S$ is a family of closed sets,
+then $\bigcap S$ is still a closed set: let $\rho(x,\bigcap S)=0$. But then 
+$\rho(x,X) = 0$ for all $X\in S$ (the superset argument again), and $x \in 
+X$ which means $x\in \bigcap S$. If $R$ is a finite union of closed sets 
+$X_i$, $S$ is still a closed set: let $\rho(x,R)=0$. But $\rho(x,R) = 
+\inf\{ \rho(x,X_i) \}$, and if infimum of a finite set is zero, then one 
+of its elements must be zero, i.e. $\rho(x,X_i) = 0$ for some $i$. That 
+also means that $x\in X_i$ and $x\in R$. We can not extend the union to be 
+infinte (a counterexample is the union of all closed subintervals of 
+$(0,1)$ in $\R$). One easily gets dual characterization of open sets 
+using DeMorgan identities (union of a family of open sets is still open, 
+intersection of a finite set of open sets is still open).
+
+\medskip
+
+We can also describe open sets in another way. We call the set $B(x,
+\varepsilon) = \{y\in M|\rho(x,y)<\varepsilon\}$ an open ball centered at $x$ 
+with radius $\varepsilon$ or just a ball (a closed ball is the same with 
+$\leq$). Alternatively, $X$ is open if $(\forall x\in X)(\exists \varepsilon 
+> 0)(B(x,\varepsilon)\subseteq X)$. Let us prove that the two definitions 
+are equivalent. Let $\rho(x,(M\bs X)) = 0$, then $\forall \varepsilon > 0$ 
+is $B(x,\varepsilon) \cap (M\bs X) \neq \emptyset$ and $x\notin X$.
+On the other hand, let $M\bs X$ be closed set. Then $\forall x\in X$ is $\rho
+(x,M\bs X) = \varepsilon > 0$ which means that $B(x,\varepsilon) \cap (M\bs X) 
+= \emptyset$ and $B(x,\varepsilon) \subseteq X$.
+
+\medskip
+
+\tpc{Topological equivalency} Two metrics $\rho_1,\rho_2$ on the same set are 
+called {\it topologically equivalent}, if $X\subseteq M$ is open in $(M,\rho_1)$ 
+iff $X$ is open in $(M,\rho_2)$. One can also say that these metrics induce the 
+same topology on $M$.
+\medskip
+Now we present some topologically equivalent metrics on $\R^2$.
+{\parindent0.5in\parskip6pt
+	\item{$\bullet$} $\rho_1(x,y) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 }$
+	\item{$\bullet$} $\rho_2(x,y) = \max\{(x_1 - y_1),(x_2-y_2)\}$
+	\item{$\bullet$} $\rho_3(x,y) = |x_1 - y_1| + |x_2-y_2|$
+
+}
+The equivalency is immediate because open ball in any of these metrics contains
+(properly) open ball of the other two metrics ({\it image coming soon}).
+

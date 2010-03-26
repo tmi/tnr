@@ -1,0 +1,139 @@
+\chapter{Lecture 2}
+\medskip
+Topological equivalency of metrics $\rho_1,\rho_2$ has also an alternative 
+form:
+$$\eqalign{
+	&(\forall x)(\forall\varepsilon>0)(\exists\delta_1,\delta_2>0)
+		(\forall y)\cr
+	&\rho_1(x,y) < \delta_1 \imply \rho_2(x,y) < \varepsilon\cr
+	&\rho_2(x,y) < \delta_2 \imply \rho_1(x,y) < \varepsilon\hbox{,}\cr
+}$$ meaning that for any ball in one metric we can find a sub-ball in the other 
+one. To prove it formally, let $\rho_1,\rho_2$ be topologically equivalent. 
+Then $B_{\rho_1}(x,\varepsilon)$ is open in both metrics, so there is an 
+$\rho_2$-open ball centered at $x$ with diameter $\delta_2$; proof for 
+$\delta_1$ is analogous. Now, let $\rho_1,\rho_2$ suffice the condition. 
+If $X$ is open in $\rho_1$, then we can find a $\varepsilon$-open ball 
+centered at every $x\in X$, and due to sufficiency a $\delta_2$ sub-ball 
+centered at $x$ in $\rho_2$ metric -- therefore $X$ is open in $\rho_2$.
+\smallskip
+However, we cannot formulate the condition uniformly, i.e. $(\forall \varepsilon
+>0)(\exists \delta_1,
+\delta_2>0)(\forall x,y)(...)$. A counterexample is right at hand: for set 
+$\{1/n|n\in\N\}$ and metric $|x-y|$ and discrete metric there cannot be such 
+$\delta_1,\delta_2$ (the metrics are clearly equivalent, but $\forall 
+\delta_1>0$ there is some point $1/n$ with non-empty $\delta_1$ open ball, 
+contradicting the emptiness of $1/2$-ball in discrete metric).
+
+\medskip
+
+\tpc{Convergency} Let $(x_n)_{n\in\N}$ be a sequence of points in metric space.
+We say that $x_n$ {\it converges} to $x$ iff $(\forall \epsilon>0)(\exists n_0)
+(\forall n > n_0)(\rho(x,x_n) < \epsilon)$. Notation is $x_n\to x$ or $\lim_
+{n\to \infty} x_n = x$, and the sequence is called {\it convergent}.
+\smallskip Convergency enables us to characterize closed sets in another way.
+$F$ is closed iff $\forall$ convergent $(x_n)\subseteq F$ is $\lim x_n\in F$.
+To prove it, let us take a closed $F$, and its convergent subsequence $x_n$ 
+with $\lim x_n = x$. Then $\forall \varepsilon>0$ there is $x_n$ with 
+$\rho(x,x_n) = \varepsilon$ which means that $\rho(x,F) = 0$ and $x$ is in 
+closure $F$. On the other hand, if $\rho(x,F) = 0$, $\forall n$ 
+there is $x_n\in F$ with $\rho(x,x_n) < 1/n$. We can construct a subsequence 
+of $F$ of such $x_n$, and clearly $\lim x_n = x$. Therefore, $x\in F$.
+
+\medskip
+
+\tpc{Continuity}
+Mapping $f:\ (M,\rho)\to(N,\sigma)$ is called {\it continuos}, if $(\forall x)
+(\forall \varepsilon > 0)(\exists \delta > 0)(\forall y)(\rho(x,y) < \delta 
+\imply \sigma(f(x),f(y)))$. Moreover, $f$ is {\it uniformly continous} if 
+$(\forall \varepsilon>0)(\exists \delta > 0)(\forall x,y)(\rho(x,y) < \delta 
+\imply \sigma(f(x),f(y)))$, i.e. there is one uniform $\delta$ independent of 
+$x$.
+\smallskip
+An example of non-uniformly continous map is $x^2$, one has to take $\delta$ 
+smaller as $x$ grows.
+
+\medskip
+Now we prove some facts about continuos maps. For $f:\ (M,\rho)\to(N,\sigma)$ 
+following conditions are equivalent:
+
+{\parindent0.5in\parskip6pt
+	\item{$\bullet$} $f$ is continous.
+	\item{$\bullet$} Preimage of open $X\subseteq N$ is open.
+	\item{$\bullet$} Preimage of closed $X\subseteq N$ is closed.
+	\item{$\bullet$} For $(A\subseteq M)(f[\overline A] \subseteq \overline
+		{f[A]})$.
+
+}
+
+Let $X$ be open in $N$. Then, for $f(x)$ we have $B(f(x),\varepsilon>0)
+\subseteq X$, and because of $f$ beiing continuous $B(x,\delta>0)\subseteq 
+B^{-1}(f(x), \epsilon) \subseteq X^{-1}$, so $X^{-1}$ is open. 
+
+If $X$ is closed in $N$, then $N\bs X$ is open and $(N\bs X)^{-1} = 
+M\bs X^{-1}$ is open too, therefore $X^{-1}$ is closed.
+
+As $A\subseteq \overline{f[A]}^{-1}$ and preimage of closed $\overline{f[A]}^
+{-1}$ must be closed, we have that $\overline A\subseteq \overline{f[A]}^{-1}$.
+
+Let $\varepsilon > 0$ and $A=N\bs B(f(x),\varepsilon)$. Then $A=f[A^{-1}]$ is 
+closed, meaning that $f[\overline{A^{-1}}] \subseteq f[A^{-1}]$ and $f[M\bs 
+\overline{ A^{-1}}] \subseteq N\bs A = B(f(x),\varepsilon)$. But because 
+$\overline{ A^{-1}}$ is closed, $M\bs \overline{ A^{-1}}$ is open and contains 
+an open ball centered at $x$, thus completing the proof.
+
+\medskip
+
+\tpc{Morphisms} A bijective mapping $f$ from $(M,\rho)$ to $(N,\sigma)$ is 
+called {\it isometric mapping} and the spaces are {\it isometric}, if 
+$\delta(x,y) = \sigma(f(x),f(y))$. If both $f$ and $f^{-1}$ are continuous, 
+then $f$ is called {\it homeomorphism} and the spaces are {\it homeomorphic}. 
+Clearly, isometric mapping is stronger (take $\R$ and $(-1,1)$, these are 
+clearly homeomorphic by $f(x) = x/(|x|+1)$ but cannot be isometric because 
+distance in $\R$ is unbounded).
+\smallskip
+
+Let $f$ be a homeomorphism between $(M,\rho)$ and $(N,\sigma)$, and set 
+$\sigma_1(f(x),f(y)) = \rho(x,y)$. Then, we instantly get that $\sigma_1$ 
+is metrics on $N$ and $f$ is isometric mapping between $(M,\rho)$ and 
+$(N,\sigma_1)$. However, it also holds that $\sigma$ and $\sigma_1$ are 
+topologically equivalent -- identity on $N$ is continuous with respect to 
+$\sigma$ and $\sigma_1$, therefore open set $X$ in one metric has open 
+image---which is $X$ itself---in the other.
+
+\medskip
+
+\tpc{Subspace} $(N,\sigma)$ is {\it subspace} of $(M,\rho)$ if 
+$N\subseteq M$ and $\sigma = \rho\uparrow N^2$. 
+\smallskip
+\tpc{Sum}
+For any nonzero ordinal $\beta$ and spaces $(X_\alpha,\rho_\alpha),\ 
+\rho_\alpha(x,y)\leq 1,\ \alpha \in \beta$ we call the 
+space $\sum (X_\alpha,\rho_\alpha) = (\langle x,\alpha\rangle, \delta)$ where 
+$\delta(\langle x,\alpha\rangle,\langle y,\alpha) = \rho_\alpha(x,y)$ and 
+$1$ otherwise the {\it sum} of spaces. In the sum space, set is open iff 
+all the corresponding $\alpha$ sets are open.
+\smallskip
+\tpc{Product} For a nonzero ordinal $\beta \leq \omega_0$ and spaces 
+$(X_i,\rho_i),\ \rho_i(x,y)\leq 1,\ i \in \beta$ 
+we call the space $\prod (X_i,\rho_i) = (\langle x_i
+\rangle, \chi)$ a {\it product} space, with $\chi(\langle x_i\rangle, 
+\langle y_i \rangle) = \sum_{i\in \beta} \rho_i(x_i,y_i) / 2^i$.
+Convergency in the product space is equal to convergency in every $i$.
+If $\langle x_i\rangle_n \subseteq\prod X$ converges to $\langle y_i
+\rangle$, then $\rho_i(
+(x_i)_n, y_i) < 2^i \chi(\langle x_i\rangle_n, y_i) < 2^i \varepsilon$ from 
+certain $n$. If all $(x_i)_n$ are convergent, then we take such $n_0$ so 
+that $\sum_{j=n_0} 2^{-j} < \varepsilon/2$. For all $i < n_0$, there is 
+$n_i$ such that $\rho_i((x_i)_{n_i},y_i) < \varepsilon/(2n_0)$. We pick maximum 
+of these and $n_0$, and we get $\chi(\langle x_i\rangle_n, \langle y_i\rangle)
+< n_0\varepsilon/(2n_0) + \varepsilon/2$.
+
+\medskip
+For $N$ subspace of $M$, $X\subseteq N$ is open in $N$ iff $\exists$ open 
+$Y\subseteq M$ such that $X = Y\cap N$. As $X$ is open $N$, we can take 
+a ball $B(x,\varepsilon_x)$ for every $x\in X$. Union of these balls in 
+$M$ is still an open set, and $(\bigcup B(x,\varepsilon_x)) \cap N = X$.
+On the other hand, for $x\in X$ there is $\varepsilon >0$ such that 
+$B(x,\varepsilon)\subseteq Y$, and $B(x,\varepsilon)\cap N \subseteq 
+Y\cap N \subseteq X$.
+
