@@ -1,0 +1,56 @@
+\chapter{Lecture 5}
+\centerline{\tt ... damn cryptic ...}
+% notes in this lecture are damn cryptic, be aware!
+
+\tpc{Dense sets} A set $X\subseteq M$ is {\it dense} in $(M,\rho)$ if $
+\overline X = M$. Set $X$ is of type $G_\delta$ if $X=\bigcap
+_{i\in \N} Y_i$ where $Y_i$ are open sets. Set $X$ is of type $F_\sigma$ 
+if $X=\bigcup_{i\in \N} Y_i$ where $Y_i$ are closed sets. Clearly, 
+$X$ is of type $G_\delta$ iff $\overline X$ is of type $F_\sigma$.
+
+\smallskip Strange corollary (?) : every metric space can be isometrically 
+embedded onto dense subspace of complete metric space (?).
+
+\medskip
+
+\tpc{Baire theorem} Let $(M,\rho)$ be complete metric space, $\{U_n; n\in 
+\N\}$ family of open dense subsets of $M$. Then $\bigcap U_n$ is dense 
+in $M$.
+\smallskip
+{\it Proof:} we just need to show that $\bigcap U_n \cap G \neq \es$ 
+for any non-empty open $G$. First, $G\cap U_1$ is non-empty and open.
+Let $x_1\in G\cap U_1$ and $\varepsilon < 1$, so that $B_\rho (x_1,
+\varepsilon) \subseteq G\cap U_1$. By induction, we have constructed 
+$x_n,\ \varepsilon < 1/n,\ B_\rho(x_n,\varepsilon_n)\subseteq G\cap 
+\bigcap_n U_i$. As $B_\rho(x_n,\varepsilon_n)$ is open, we can pick
+$x_{n+1}\in B_\rho(x_n,\varepsilon_n/2)\cap U_{n+1}$ and put $\varepsilon_
+{n+1} = \min\{1/(n+1),(\varepsilon_n - \rho(x_n,x_{n+1}))/2\}$. Then we 
+have $B_\rho(x_n, \varepsilon_n)\subseteq \overline{B_\rho(x_n,\varepsilon_n)}
+\subseteq B_\rho(x_{n-1},\varepsilon_{n-1})$, therefore $\bigcap B_\rho
+(x_n,\varepsilon_n) = \bigcap \overline{B_\rho(x_n,\varepsilon_n)}$ and 
+by Cantor's theorem from previous lecture there is a point in $\bigcap 
+B_\rho(x_n,\varepsilon_n) \subseteq G\cap \bigcap U_n$.
+\qed \smallskip
+As a strange corollary (?) : there is a continuous function that has no 
+derivate.
+
+\medskip
+
+Let $Y$ be a $G_\delta$ type subset in $(M,\rho)$. Then, there is a 
+metric $\sigma$ so that:
+{\parindent0.5in\parskip6pt
+	\item{1)} $(Y,\sigma)$ is complete.
+	\item{2)} $(Y,\sigma)$ is topologically equivalent to $(Y,\rho\uparrow
+		Y^2)$
+
+}
+
+(this is supposed to hold in the other direction too?)
+
+{\it Proof:} let us take open sets $U_n\subseteq X$, $\bigcap U_n = Y$, and 
+set $F_n = X\bs U_n$. Then $F_n$ is closed, $F_n\cap Y = \es$, $X\bs Y = 
+\bigcup F_n$. Without loss of generality $F_n \neq \es$, $\forall x,y\ 
+\rho(x,y) \leq 1$ (this can be assumed, because for complete metric $\rho$ 
+on $X$ we can take $\rho'(x,y) = \max\{1,\rho(x,y)\}$ which is topologically 
+equivalent to $\rho$ and has same Cauchy sequences).
+

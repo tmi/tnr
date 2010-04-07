@@ -1,0 +1,97 @@
+\chapter{Lecture 6}
+\centerline{\tt the Lavrent\v ev's theorem is kind of missing...}
+
+% notes in this lecture are damn cryptic, be aware!
+
+{\bf Theorem.} Let $(M,\rho),\ (N,\sigma)$ be metric spaces, $N$ is complete,
+$A\subseteq M$ be dense in $M$. If $f\,:A\to N$ is continuous, then there is a 
+$G_\delta$ set $B\supseteq A$ and $F\,:B\to N$, continuous function $F\supseteq 
+f$.
+\smallskip
+{\it Proof:} set $O_n = \bigcup \{G,\ G\subseteq M$ is open, $\forall x,y\in 
+G\cap A\ \sigma(f(x),f(y)\leq 1/n\}$. We see that every $O_n$ is open (as a 
+union of open sets $G$), but it also holds that $A\subseteq O_n$ -- we pick 
+$x\in A$, then $\exists \delta > 0\ \rho(x,y) < \delta \imply \sigma (f(x),
+f(y) \leq 1/(2n)$ (since $f$ is continuous), therefore for any $y,y' \in 
+B_{\delta}(x)$ is $\sigma(f(y),f(y')) \leq \sigma(f(y),f(x)) + \sigma(f(y')
+,f(x)) \leq 1/n$. We set $B=\bigcap O_n$, then $B$ is $G_\delta$ set containing 
+$A$. Now, we proceed with construction of $F$:
+{\parindent0.5in\parskip6pt
+	\item{$\bullet$} for $z\in A$ set $F(z) = f(z)$,
+	\item{$\bullet$} for $z\in B\bs A$ pick a sequence $(x_n^z,\ n\in \N,\ 
+		x_n^z\in A)$ such that this sequence converges to $z$ (we can do this 
+		since $A$ is dense), and set $F(z) = \lim_{n\to \infty} f(x_n^z)$. To 
+		be sure that $F(z)$ is well-defined, we need to check that $f(x_n^z)$
+		is Cauchy: as $f$ is continous, there is $\delta$ such that $\rho(x,
+		y)\leq \delta\imply \sigma(f(x),f(y))$. $x_n^z$ itself is convergent 
+		and therefore Cauchy, so we can pick $n_0$ such that $\forall m,n>n_0$
+		$\rho(x_m^z,x_n^z) < \delta$ and $f(x_m^z,x_n^z) < \varepsilon$.
+
+}
+Clearly is $F\supseteq f$, so we just have to check that $F$ is continuous.
+We have an $\varepsilon$ and seek the right $\delta$. Let us pick arbitrary 
+$z = (x_n^z),\ y=(x_m^y)$ (if either $y$ or $z$ are already in $A$, we set the 
+sequence identical), and bound distance of their images: $\sigma(f(z),f(y)) 
+\leq \sigma(f(z),f(x_n^z)) +\sigma(f(x_n^z),f(x_m^y)) +\sigma(f(x_m^y),f(y))$.
+As $f(x_n^z)$ converges to $f(z)$, we can pick $n_0$ such that $\sigma(f(z),
+f(x_{n_0..}^z))$ is $<\varepsilon/3$, same for $\sigma(f(x_m^y),f(y))$. If 
+$\rho(z,y)$ is lesser than some $\delta$, then we can pick $n_1$ and $m_1$ 
+such that $\rho(x_{n_1..}^z,x_{m_1..}^y) < 3\delta$. Since $f$ is continuous, 
+we can pick $\delta_1$ such that $\rho(a,b) < \delta_1 \imply \sigma(f(a),f(b))
+< \varepsilon/3$, and then we set $\delta = \delta_1/3$; and our bounding is 
+done.
+\qed
+
+\medskip
+{\bf Theorem (Lavrent\v ev).} (?) Let $M,N$ be metric spaces, $A\subseteq M$ 
+and $B\subseteq N$ dense sets, $f\,:A\to B$ homeomorphism, then there are 
+$G_\delta$ sets $C\supseteq A$ and $D\supseteq B$ and homeomorphism $F\,:
+C\to D,\ f\subseteq F$.
+\smallskip
+{\it Proof:} {\tt coming soon?}
+
+\qed
+\medskip
+
+
+% subcover ? sub-cover
+\tpc{Compactness} We say that metric space $(M,\rho)$ is {\it compact}, if for 
+each cover $\cal C$ of $M$ by open balls there is a finite sub-cover $\cal 
+C'\subseteq C$ of $M$. Following statements are equivalent:
+{\parindent0.5in\parskip6pt
+	\item{a)} $M$ is compact.
+	\item{b)} Every family $\cal F$ of closed sets, such that any finite 
+		subset of $\cal F$ has nonempty intersection, has nonempy intersection.
+% limit point? hromadny bod;
+	\item{c)} Every infinite subset $X$ of $M$ has a limit point (a point 
+		$x$ such that any ball around $x$ contains $y\in X,\ y\neq x$).
+	\item{d)} Every sequence has a convergent subsequence.
+	\item{e)} Every continuous function $f\,:M\to \R$ is bounded.
+	\item{f)} Every continuous function $f\,:M\to \R$ attains its supremum and 
+		infimum.
+	\item{g)} For every countable cover of $M$ there is a finite subcover.
+
+}
+
+\smallskip
+e $\imply$ f: let $f$ be continuous not attaining its sup -- $t=\sup f(x) 
+\imply \neg \exists x_0,\ f(x_0) = t$. Define $g\,:(-\infty,t)\to \R,\ 
+g(y)=1/(t-y)$, $g$ is continous, $g\circ f$ is continous but unbounded.
+\smallskip
+f $\imply$ e: let $f$ be continuous attaining its supremum and infimum. 
+But that means that $f[M] \subseteq [f(\inf),f(\sup)]$ and $f$ is bounded.
+\smallskip
+a $\imply$ b: let $\bigcap {\cal F} = \es$, then $\{M\bs F,\ F\in {\cal F}\}$ 
+is open cover of $M$. This implies there is a finite open sub-cover -- 
+$M = M \bs \bigcap F_{1..n}$, meaning that $\bigcap F_{1..n} = \es$.
+\smallskip
+b $\imply$ a: let $\cal U$ be a set of open balls without any finite sub-cover
+of $M$. Then, ${\cal F} = \{M\bs U,\ U\in{\cal U}\}$ has the 
+finite-intersection property and therefore $\bigcap \cal F \neq \es$, meaning 
+that $\cal U$ did not cover $U$.
+\smallskip
+a $\imply$ c: let $X$ be a subset of $M$ without limit point. Then for all 
+$x\in M$ there is an open set $G_x\ni x$ with finite intersection with $M$.
+But such $G_x$ form cover of $M$, therefore there is a finite sub-cover 
+$H_x$, so that $\bigcup H_x = M \supseteq X$ and each $X\cap H_x$ is finite, 
+therefore $X$ is finite.
