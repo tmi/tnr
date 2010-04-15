@@ -1,0 +1,68 @@
+\chapter{Lecture 7}
+\medskip
+
+c $\imply$ d: for a sequence $x_n$ either there is such $r\in M$ 
+so that $x_n = r$ for infinitely many $n$'s or every value is present 
+only finitely-times. In the first case, we can simply pick all $x_n$ 
+that equal $r$ to get convergent subsequence; in the second case, we 
+construct set $X$ as a range of $x_n$. $X$ is therefore infinite and 
+has a limit point $x$, i.e. for every $m$ we select $x_m$ so that 
+$\rho(x_m,x) < 1/m$ and get converget subsequence.
+\smallskip
+d $\imply$ e: let $f$ be unbounded, i.e. $\forall n\ \exists x_n\ 
+|f(x_n)|>n$, and such a sequence $x_n$ cannot have convergent subsequence, 
+since every subsequence is unbounded.
+\smallskip
+a $\imply$ g: trivial, since $g$ is special case of $a$.
+\smallskip
+e $\imply$ c: let $X$ be a set without limit point, i.e. $\forall x\ 
+\exists \varepsilon\ |B(x,\varepsilon)\cap X| < \infty$. Specially, 
+we can say that $X=\{x_i\},\ \forall i\ \exists \varepsilon_i\ B(x_i,
+\varepsilon_i)\cap X = \{x_i\}$. If we set $\delta_i = \min\{\varepsilon/3,
+1/n\}$, then $B(x_i,\delta_i)$ are pairwise disjoint and $\forall x\in M
+\ \exists \varepsilon(x)\ B(x,\varepsilon)$ intersects only finitely many 
+$B(x_i,\delta_i)$. Now, we define $f_n(x) = \rho(x,X\bs B(x_n,\delta_n))$ --
+this $f$ is continous, as it is defined from metrics; for $x\not\in X$ equals 
+0 and $f(x_i) \geq \delta_n$. Then, $F(x)=\sum n\cdot 1/\delta_n \cdot 
+f_n(x)$ is continous as a sum of continous functions (note that $\forall x\ 
+F(x)$ is determined only by finitely many $f_n(x)$ since $f_n(x)$ is non-zero 
+only for $x\in B(x_i,\delta_i)$); and therefore has to be bounded. But as 
+$F(x_n) \geq n$, we get that $X$ was finite.
+\smallskip
+c $\imply$ a: let $\cal C$ is open cover of $M$. First, we prove an 
+auxilliary lemma:
+$$(\exists \varepsilon > 0)(\forall x\in M)(\exists C\in {\cal C})(B(x,
+	\varepsilon)\subseteq C) \leqno (*)$$
+{\it Proof:} by contradiction, for $\varepsilon_i=1/i$ we get 
+points $x_i$ such that $B(x_i,\varepsilon_i)$ is not subset of any set
+in cover. But then $X=\{x_i\}$ is an infinite set without limit point 
+-- since limit point $l$ would have to be in some $C$, we could pick 
+$\varepsilon$ so that $B(l,\varepsilon)\subseteq C$, $B(l,\varepsilon/2)
+\cap X$ is still infinite, and for all $x_i$ in such intersections is 
+$B(x_i,\varepsilon/2)\subseteq C$, contradicting that $B(x_i,1/i)$ is 
+not subset of any cover for $1/i < \varepsilon/2$.
+
+Now, we pick $\varepsilon$ from $(*)$ and arbitrary $x_1$, for which there
+is $C_1 \in \cal C$ so that $B(x_1,\varepsilon)\subseteq C_1$. Now, having 
+constructed $C_{1..i-1}$ we proceed constructing $C_i$ -- if $M\neq \bigcup
+C_{1..i-1}$, we pick $x_{i+1} \in M\bs \bigcup C_{1..i-1}$, for which there 
+is $C_i \in \cal C$ so that $B(x_i,\varepsilon)\subseteq C_i$, this $C_i$ 
+is clearly $\neq C_{1..i-1}$. However, if such sequence of $x_i$ is infite, 
+we have an infinite $\varepsilon$-net (since every $x_i$ is not in 
+$B(x_{1..i-1},\varepsilon)$), which contradicts something ({\tt what?}). 
+Therefore, sequence is finite, and $C_{1..i}$ form a finite subcover of $M$.
+
+\smallskip
+
+g $\imply$ {\tt to be finished}
+
+\qed
+\medskip
+
+{\bf Theorem.} Metric space is compact iff it is complete and totally bounded.
+
+{\it Proof:} {\tt to be finished}
+
+{\bf Corollary.} {\tt to be finished}
+
+{\bf Theorem (Heine--Borel--Lebesgue).} {\tt to be finished}
