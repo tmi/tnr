@@ -1,0 +1,58 @@
+\chapter{Lecture 8}
+
+\proclaim Theorem. For $(M,\rho)$ compact metric space, $(N,\sigma)$ metric
+space and $f\,:M \to N$ continuous is $f[M]$ closed subset of $N$.
+
+{\it Proof:} We already know that continuous image of compact space is a compact
+space, and also that compact space is totally bounded and complete. Therefore
+if there was a point in $x\in \overline{f[X]} \bs f[X]$, we could construct a 
+Cauchy sequence $(x_n|x_n \in f[M], \sigma(x_n,x)<1/n)$ with limit $x$, which 
+wouldn't have a limit in $f[X]$ -- a contradiction.
+\qed
+
+\proclaim Corollary. For compact metric space $(M,\rho)$, metric space 
+$(N,\sigma)$ and $f$ continuous bijection, we have that $f$ is homeomorphism.
+
+{\it Proof:} If $X\subseteq N$ is closed, then $(f^{-1})^{-1}[X] = f[X]$ is
+closed due to previous theorem, therefore $f^{-1}$ is continuous.
+\qed
+
+\tpc{Cantor Set} In $\R$, we say that for $$C_0 = [0,1], C_i = C_{i-1} \bs 
+\bigcup_{j=0}^{3^{i-1}} (j\cdot 3^{-i+1} + 3^{-i}, j\cdot 3^{-i+1} + 2\cdot 
+3^{-i})$$
+is ${\cal C}=\bigcup C_i$ the {\it Cantor set}. This set has many funny 
+properties, for example it consist only of isolated points and therefore has 
+no interior (no open ball is subset of it) and is closed (and compact, as we 
+are in $\R$).
+
+Alternatively, we can say that $\cal C$ consists of points in $[0,1]$ that have 
+no 1 in their ternary expansion. This argument implies that cardinality of
+$\cal C$ is continuum. This ternary expansion gives us more: if we consider 
+the space $(\{0,1\}^{\omega_0},\iota)$ -- where $\iota((x_n),(y_n)) = \sum_i 
+[x_i \neq y_i]\cdot 2^{-i}$, and $f\,:{\cal C} \to \{0,1\}^{\omega_0}$, 
+$f(x) = x/2$; we get that $\cal C$ is bijection and continuous -- because
+%a $2^{-j}$-open ball around some $x\in \{0,1\}^{\omega_0}$ consists of
+%sequences that have first $j$ members same as $x$, therefore every open set has
+%this property and its image in $f^{-1}$ is some set of sequences in $\cal C$
+%that have the same prefix (altogether), which is too an open set. Therefore, $f$ 
+%is homeomorphism.
+
+We can construct a similiar set, by removing subintervals at $(1/5,2/5)$ and
+$(3/5,4/5)$ instead of $(1/3,2/3)$. Later, we shall see that this set is 
+homeomorphic to $\cal C$. With more dimensions there is more fun. If we take 
+unit square and remove the middle subrectangle (height 1, width $1/3$) in 
+a simillar manner; we get a 2-dimensional $\cal C$. Such a set has still big
+cardinality and no interior, and has area 0 (total sum of area of removed
+squares is 1, the area of unit square). On the other hand, if the removed
+subrectangle has width $0 < \alpha < 1/3$, the area is nonzero and resulting
+set still doesn't have any interior.
+
+\proclaim Theorem. Every compact space is continous image of $\cal C$.
+
+{\it Remark:} One shall note that every compact space has cardinality $\leq 
+\cal C$, since {\tt to be finished.}
+
+{\it Proof:} {\tt any volunteers?}
+\qed
+
+{\tt And here again, something is missing.}
