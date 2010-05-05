@@ -1,0 +1,125 @@
+\chapter{Lecture 10}
+
+{\bf Definition.} $K_x\subseteq M$ is a {\it quasicomponent} of $(M,\delta)$
+in $x$, if $K_x=\bigcap \{Z\subseteq M;x\in Z$ and $Z$ is both closed and open set
+$\}$.
+
+{\bf Theorem.} Every point of $M$ is contained in exactly one
+quasicomponent.
+
+% dual set???
+% souvisla mnozina???
+{\it Proof:} Let $x\in K_x$, $y\in K_y$. If $K_x \neq K_y$, we can wlog assume
+that $t\in K_x \bs K_y$. That means that there is $Z'$ {\it cao} such that $y\in Z'$
+and $t\notin Z'$, and $\forall Z$ {\it cao} $x\in Z\imply t\in Z$. However,
+$M\bs Z'$ is also {\it cao}, and because $t\in M\bs Z'$, $x$ is also in $M\bs
+Z'$ (otherwise $t$ would be in a set and in its complement). Therefore, $K_x
+\subseteq M\bs Z'$ and $K_y\subseteq Z'$, implying that $K_x \cap K_y$ and any
+two different quasicomponents have empty intersection.
+\qed
+
+{\bf Example.} As previous theorem remarked some resemblance between components
+and quasicomponents, now we present that these two terms indeed differ. Imagine
+$M\subseteq \R^2$, $M=\{[0,0],[0,1]\}\cup \{1/n\}\times [0,1]$. If $C\subseteq
+M$ is a connected set containing $[0,0]$, then there can't be any other point in
+$C$ since $[0,0]$ itself is a {\it cao} subset of $C$, therefore $C$ is a
+component. On the other hand, let $Z\subseteq M$ be {\it cao} set containing
+$[0,1]$. $Z$ is open and therefore $\exists \varepsilon > 0\
+B([0,0],\varepsilon) \cap M\subseteq Z$ and $\exists n_0\ \forall n>n_0\ [1/n,0]
+\in Z$. But $\{1/n\}\times [0,1]$ is connected {\it cao} set intersecting $Z$
+thus $\{1/n\}\times [0,1]\subseteq Z$ (otherwise the intersection would form a
+proper {\it cao} subset of $\{1/n\}\times [0,1]$). Specially, $[1/n,1]\in Z$,
+and because $Z$ is closed, we have $[0,1] \in Z$. A quasicomponent of $[0,0]$
+therefore contains $[0,1]$ also, unlike the component.
+
+{\bf Theorem.} If $K_x$ is open quasicomponent, then $K_x$ is component.
+
+{\it Proof:} As $K_x$ is intersection of closed sets, it is indeed closed, and
+due to assumption {\it cao}. If $K_x$ is not connected, then there are nonempty
+disjoint open sets $U,V$ such that $K_x = U\cup V$. Wlog $x\in U$, but $U$ is
+open in $M$ too and $M\bs V$ is closed in $M$, implying that $U = K_x \bs V =
+(M\bs V) \cap K_x$ is closed and therefore {\it cao}. But $x$ can't be in proper
+{\it cao} subset of $K_x$.
+\qed
+
+{\bf Corollary.} For $M$ with finitely many quasicomponents is every
+quasicomponent a component too.
+
+{\bf Theorem.} If $K_x$ is quasicomponent of compact space, then $K_x$ is
+component.
+
+{\it Proof:} Let $K_x$ be diconnected, $K_x = F\cup H$, $F$ and $H$ are disjoint
+nonempty closed sets. Set $U=\{y\in M; \delta(y,H)>\delta(y,F)\}$ and $V=\{y\in
+M; \delta(y,F)>\delta(y,F)\}$, these are clearly disjoint, open, and supersets
+of $F$ and $H$ respectively.
+{\vskip-\parskip\vskip2pt \leftskip15pt {\bf Lemma.} $\exists Z\subset M$, $x\in
+Z$ {\it cao}, $Z\subseteq U\cap V$. If there were no such
+$Z$, then the set $S = \bigcap \{P\bs (U\cup V)$, $P$ is {\it cao} containing
+$x\}$ is an intersection of nonempty closed sets where every two sets have
+nonempty intersection ({\tt why?}), due to compactness is $S$ nonempty and
+there is $y\in S$ that should be in $K_x$ too, but it is not even in $U\cup
+V\supset K_x$.
+
+}
+\vskip-\parskip\vskip2pt
+Wlog assume that $x\in Z\cap U$; also $Z\cap U = Z\bs V$ is closed (since
+substraction of open set from closed set yields closed set) and open
+(since both $Z$ and $U$ are open) containing $x$, but $K_x\not
+\supseteq U\cap Z$ since $K_x\cap V\neq \es$; a contradiction.
+\qed
+
+{\bf Definition.} {\it Continuum} is a connected compact metric space. If a
+continuum consists of a single point, we call it degenerated, otherwise we do
+not. Unless explicitly stated, all present continuums are not degenerated.
+
+{\bf Theorem.} Let $A_0\supseteq A_1\supseteq ...$ be a sequence
+of continuums, then $\bigcap A_i$ is a continuum itself. 
+
+{\it Proof:} Due to compactness of $A_0$, we have that $M = \bigcap A_i$ is an
+intersection of nonempty closed sets, where $\bigcap_j A_i = A_j \neq \es$, and
+therefore nonempty. As intersection of closed sets it is itself closed and
+therefore compact. Assume for contradiction that $M = F\cup H$ where $F$ and $H$
+are nonempty disjoint closed subsets of $M$. As in previous proof, we construct
+sets $U = \{x\in A_0; \delta(x,F)<\delta(x,H)\}$ and $V = \{x\in A_0;
+\delta(x,H)<\delta(x,F)\}$.
+{\vskip-\parskip\vglue 2pt plus 1pt minus 1pt \leftskip15pt {\bf Lemma.} 
+$\exists n$ such that $A_n \subseteq U\cup V$. If not, $\{A_i\bs (U\cup V)\}$ 
+is decreasing sequence of nonempty closed (since substraction of open set from 
+closed yields closed set) sets in compact $A_0$ therefore its intersection 
+contains a $y$, but $U\cup V$ was supposed to be superset of $\bigcap A_i$.
+
+}
+\vskip-\parskip\vglue2pt plus 1pt minus 1pt
+But existence of such $A_n$ as claimed in lemma leads to contradiction, since 
+$A_n$ is not connected (both $A_n\bs U$ and $A_n\bs V$ are nonempty and closed,
+and form a disjoint partition of $A_n$).
+\qed
+
+{\bf Example.} $A_i = ([0,1]\times[0,1/n])\bs (0,1)\times \{0\}$. All $A_i$ are
+connected but their intersection is not (because $A_i$ are not compact).
+
+{\bf Theorem.} $M\subseteq \R$ is continuum, iff $M=[a,b]$.
+
+{\it Proof:} Let $M$ be continuum, then it is compact and identical map to $R$
+attains its max $b$ and min $a$, therefore $M\subseteq [a,b]$. But any $a<c<b$
+has to be in $M$ since otherwise $M$ would not be connected. On the other hand,
+any $[a,b]$ is clearly continuum.
+\qed
+
+{\bf Definition.} Border of $X\subseteq M$ is defined as
+$\bd(X) = \{x\in M;\delta(x,X)=\delta(x,M\bs X) = 0\}$. Equivalently, $x\in
+\bd(X) \equiv \forall \varepsilon > 0\ B(x,\varepsilon)\cap X\neq \es \wedge 
+B(x,\varepsilon)\cap X\bs M\neq \es$; or as $\bd(X) =
+\overline{X}\cap\overline{M\bs X}$.
+
+{\bf Theorem.} Let $M$ be continuum, $F$ closed nonempty proper subset of $X$,
+and $K$ a component of $F$. Then $K\cap \bd(F)\neq \es$.
+
+{\it Proof:} Assume for contradiction that $\exists K,\ K\cap \bd(F) = \es$. 
+Then $U = F\bs \bd(F) = F\bs \overline{(M\bs F)}$ is open set ({\tt why?}) 
+and $K\subseteq U$. As $F$ is compact, $K$ quasicomponent and $\exists
+Z\subseteq F$ {\it cao}, $K\subseteq Z$, $Z\cap \bd F = \es$ ({\tt really?}). As
+$Z$ is open in $F$, it is also open in $U$ which is open in $M$ and therefore
+$Z$ is open in $M$. On the other hand, $Z$ is closed in $F$ and in $M$ also,
+contradicting conectedness of $M$.
+\qed

@@ -1,9 +1,9 @@
 \chapter{Lecture 6}
-\centerline{\tt the Lavrent\v ev's theorem is kind of missing...}
+\centerline{\tt the Lavrentieff's theorem is kind of incomplete...}
 
 % notes in this lecture are damn cryptic, be aware!
 
-{\bf Theorem.} Let $(M,\rho),\ (N,\sigma)$ be metric spaces, $N$ is complete,
+{\bf Theorem. } Let $(M,\rho),\ (N,\sigma)$ be metric spaces, $N$ is complete,
 $A\subseteq M$ be dense in $M$. If $f\,:A\to N$ is continuous, then there is a 
 $G_\delta$ set $B\supseteq A$ and $F\,:B\to N$, continuous function $F\supseteq 
 f$.
@@ -43,13 +43,22 @@ done.
 \qed
 
 \medskip
-{\bf Theorem (Lavrent\v ev).} (?) Let $M,N$ be metric spaces, $A\subseteq M$ 
-and $B\subseteq N$ dense sets, $f\,:A\to B$ homeomorphism, then there are 
-$G_\delta$ sets $C\supseteq A$ and $D\supseteq B$ and homeomorphism $F\,:
-C\to D,\ f\subseteq F$.
+% proof taken from Engelking
+{\bf Theorem (Lavrentieff).} (?) Let $M,N$ be complete metric spaces, 
+$A\subseteq M$ and $B\subseteq N$ dense sets, $f\,:A\to B$ homeomorphism, then 
+there are $G_\delta$ sets $C\supseteq A$ and $D\supseteq B$ and homeomorphism 
+$F\,: C\to D,\ f\subseteq F$.
 \smallskip
-{\it Proof:} {\tt coming soon?}
-
+{\it Proof:} Let $g$ be the inverse of $f$, from previous theorem we know that 
+there are extensions $F_0\,:C_0\to Y$ and $G_0\,:D_0\to X$ with $C_0\supseteq 
+A$ and $D_0 \supseteq B$ $G_\delta$-sets. Set $C = C_0\cap G_0^{-1}[D_0]$ and 
+$D = D_0 \cap F_0^{-1}[C_0]$, both are still $G_\delta$ sets; clearly with 
+$A\subseteq C$ and $B\subseteq D$. Now, we show that $G_0(F_0(x)) = x$ for every 
+$x\in C$ (which implies $F_0[C]\subseteq D$, since $F_0[C] \subseteq G_0^{-1} 
+[C] \subseteq G_0^{-1}[C_0] = D$). {\tt missing shit}. Symmetrically, we can 
+assume that $F_0(G_0(x)) = x\ \forall x\in D$ and $G_0[D]\subseteq C$; therefore 
+$G_0[D] = C$ and $F_0[C]=D$. If we set $F=F_0\uparrow C$ and $G=G_0\uparrow D$, 
+both remain continuous and are mutually inverse, therefore $F$ is homeomorphism.
 \qed
 \medskip
 
