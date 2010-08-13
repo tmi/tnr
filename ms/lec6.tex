@@ -1,5 +1,5 @@
 \chapter{Lecture 6}
-\centerline{\tt the Lavrentieff's theorem is kind of incomplete...}
+%\centerline{\tt the Lavrentieff's theorem is kind of incomplete...}
 
 % notes in this lecture are damn cryptic, be aware!
 
@@ -12,7 +12,7 @@ f$.
 G\cap A\ \sigma(f(x),f(y)\leq 1/n\}$. We see that every $O_n$ is open (as a 
 union of open sets $G$), but it also holds that $A\subseteq O_n$ -- we pick 
 $x\in A$, then $\exists \delta > 0\ \rho(x,y) < \delta \imply \sigma (f(x),
-f(y) \leq 1/(2n)$ (since $f$ is continuous), therefore for any $y,y' \in 
+f(y)) \leq 1/(2n)$ (since $f$ is continuous), therefore for any $y,y' \in 
 B_{\delta}(x)$ is $\sigma(f(y),f(y')) \leq \sigma(f(y),f(x)) + \sigma(f(y')
 ,f(x)) \leq 1/n$. We set $B=\bigcap O_n$, then $B$ is $G_\delta$ set containing 
 $A$. Now, we proceed with construction of $F$:
@@ -23,7 +23,7 @@ $A$. Now, we proceed with construction of $F$:
 		since $A$ is dense), and set $F(z) = \lim_{n\to \infty} f(x_n^z)$. To 
 		be sure that $F(z)$ is well-defined, we need to check that $f(x_n^z)$
 		is Cauchy: as $f$ is continous, there is $\delta$ such that $\rho(x,
-		y)\leq \delta\imply \sigma(f(x),f(y))$. $x_n^z$ itself is convergent 
+		y)\leq \delta\imply \sigma(f(x),f(y)) < \varepsilon$. $x_n^z$ itself is convergent 
 		and therefore Cauchy, so we can pick $n_0$ such that $\forall m,n>n_0$
 		$\rho(x_m^z,x_n^z) < \delta$ and $f(x_m^z,x_n^z) < \varepsilon$.
 
@@ -43,19 +43,33 @@ done.
 \qed
 
 \medskip
+{\bf Lemma.} For continuous mappings $f,g\,:M\to N$ is the set $X = \{ x;\,
+f (x) = g (x) \}$ closed. Let $x$ be in $\overline X$, if
+$\rho(f(x), g (x)) = \varepsilon > 0$, then there is $\delta$ such that
+$\rho(x,y) < \delta \imply \rho(f(x),f(y)) < \varepsilon/2,\ \rho(g(x),g(y)) <
+\varepsilon/2$. But there is $y \in X \cap B_\delta(x)$, and $\varepsilon =
+\rho(f(x),g(x) \leq \rho(f(x),f(y)) + \rho(f(y),g(y)) + \rho(g(y),g(x)) <
+\varepsilon/2 + 0 + \varepsilon/2$, a contradiction. \qed
+\smallskip
+
 % proof taken from Engelking
-{\bf Theorem (Lavrentieff).} (?) Let $M,N$ be complete metric spaces, 
+{\bf Theorem (Lavrentieff).} Let $M,N$ be complete metric spaces, 
 $A\subseteq M$ and $B\subseteq N$ dense sets, $f\,:A\to B$ homeomorphism, then 
 there are $G_\delta$ sets $C\supseteq A$ and $D\supseteq B$ and homeomorphism 
 $F\,: C\to D,\ f\subseteq F$.
 \smallskip
 {\it Proof:} Let $g$ be the inverse of $f$, from previous theorem we know that 
 there are extensions $F_0\,:C_0\to Y$ and $G_0\,:D_0\to X$ with $C_0\supseteq 
-A$ and $D_0 \supseteq B$ $G_\delta$-sets. Set $C = C_0\cap G_0^{-1}[D_0]$ and 
-$D = D_0 \cap F_0^{-1}[C_0]$, both are still $G_\delta$ sets; clearly with 
+A$ and $D_0 \supseteq B$ $G_\delta$-sets. Set $C = F_0^{-1}[D_0]$ and 
+$D = G_0^{-1}[C_0]$, both are still $G_\delta$ sets; clearly with 
 $A\subseteq C$ and $B\subseteq D$. Now, we show that $G_0(F_0(x)) = x$ for every 
 $x\in C$ (which implies $F_0[C]\subseteq D$, since $F_0[C] \subseteq G_0^{-1} 
-[C] \subseteq G_0^{-1}[C_0] = D$). {\tt missing shit}. Symmetrically, we can 
+[C] \subseteq G_0^{-1}[C_0] = D$). 
+We now, that it holds for every $x\in A$ (since $g$ is inverse of $f$), but for
+identity and $G_0F_0$ has the set $\{x;\, x = G_0F_0(x) \}$ closed according to
+the previous lemma, and since $A$ is dense in $C$, we now that this set equals
+$C$. 
+Symmetrically, we can 
 assume that $F_0(G_0(x)) = x\ \forall x\in D$ and $G_0[D]\subseteq C$; therefore 
 $G_0[D] = C$ and $F_0[C]=D$. If we set $F=F_0\uparrow C$ and $G=G_0\uparrow D$, 
 both remain continuous and are mutually inverse, therefore $F$ is homeomorphism.
@@ -100,7 +114,7 @@ finite-intersection property and therefore $\bigcap \cal F \neq \es$, meaning
 that $\cal U$ did not cover $U$.
 \smallskip
 a $\imply$ c: let $X$ be a subset of $M$ without limit point. Then for all 
-$x\in M$ there is an open set $G_x\ni x$ with finite intersection with $M$.
+$x\in M$ there is an open set $G_x\ni x$ with finite intersection with $X$.
 But such $G_x$ form cover of $M$, therefore there is a finite sub-cover 
 $H_x$, so that $\bigcup H_x = M \supseteq X$ and each $X\cap H_x$ is finite, 
 therefore $X$ is finite.

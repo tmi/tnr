@@ -72,8 +72,8 @@ B^{-1}(f(x), \epsilon) \subseteq X^{-1}$, so $X^{-1}$ is open.
 If $X$ is closed in $N$, then $N\bs X$ is open and $(N\bs X)^{-1} = 
 M\bs X^{-1}$ is open too, therefore $X^{-1}$ is closed.
 
-As $A\subseteq \overline{f[A]}^{-1}$ and preimage of closed $\overline{f[A]}^
-{-1}$ must be closed, we have that $\overline A\subseteq \overline{f[A]}^{-1}$.
+As $A\subseteq \overline{f[A]}^{-1}$ and preimage of closed $\overline{f[A]}
+$ must be closed, we have that $\overline A\subseteq \overline{f[A]}^{-1}$.
 
 Let $\varepsilon > 0$ and $A=N\bs B(f(x),\varepsilon)$. Then $A=f[A^{-1}]$ is 
 closed, meaning that $f[\overline{A^{-1}}] \subseteq f[A^{-1}]$ and $f[M\bs 
@@ -87,9 +87,9 @@ an open ball centered at $x$, thus completing the proof.
 called {\it isometric mapping} and the spaces are {\it isometric}, if 
 $\delta(x,y) = \sigma(f(x),f(y))$. If both $f$ and $f^{-1}$ are continuous, 
 then $f$ is called {\it homeomorphism} and the spaces are {\it homeomorphic}. 
-Clearly, isometric mapping is stronger (take $\R$ and $(-1,1)$, these are 
-clearly homeomorphic by $f(x) = x/(|x|+1)$ but cannot be isometric because 
-distance in $\R$ is unbounded).
+Clearly, isometric mapping is stronger (take $(1,\infty)$ and $(0,1)$, these are
+clearly homeomorphic by $f(x) = 1/(1 - |x|)$ but cannot be isometric because 
+distance in one is unbounded).
 \smallskip
 
 Let $f$ be a homeomorphism between $(M,\rho)$ and $(N,\sigma)$, and set 
@@ -98,7 +98,7 @@ is metrics on $N$ and $f$ is isometric mapping between $(M,\rho)$ and
 $(N,\sigma_1)$. However, it also holds that $\sigma$ and $\sigma_1$ are 
 topologically equivalent -- identity on $N$ is continuous with respect to 
 $\sigma$ and $\sigma_1$, therefore open set $X$ in one metric has open 
-image---which is $X$ itself---in the other.
+image in the other.
 
 \medskip
 
@@ -130,7 +130,7 @@ of these and $n_0$, and we get $\chi(\langle x_i\rangle_n, \langle y_i\rangle)
 
 \medskip
 For $N$ subspace of $M$, $X\subseteq N$ is open in $N$ iff $\exists$ open 
-$Y\subseteq M$ such that $X = Y\cap N$. As $X$ is open $N$, we can take 
+$Y\subseteq M$ such that $X = Y\cap N$. As $X$ is open in $N$, we can take 
 a ball $B(x,\varepsilon_x)$ for every $x\in X$. Union of these balls in 
 $M$ is still an open set, and $(\bigcup B(x,\varepsilon_x)) \cap N = X$.
 On the other hand, for $x\in X$ there is $\varepsilon >0$ such that 

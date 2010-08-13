@@ -55,18 +55,19 @@ gives us desired triangle inequality.
 it as $\rho(x,Y)$. A subset $X$ of $M$ is a {\it closed set}, if $\{x|x\in M 
 \wedge \rho(x,X) = 0\}\subseteq X$. A subset $X$ of $M$ is an {\it open set}, if 
 its complement $M\bs X$ is a closed set. A {\it closure} of the set X is a 
-set $\overline X = \{ x\in M|\rho(x,X)=0$. Clearly $X\subseteq \overline X$, 
+set $\overline X = \{ x\in M|\rho(x,X)=0\}$. Clearly $X\subseteq \overline X$, 
 and $X = \overline X$ iff $X$ is closed.
 
 \medskip
 
-Closed set can be defined in an equivalent way: $\bigcap\{ Y
-\subseteq M| Y\supseteq X \wedge Y\hbox{ is closed}\}$. Let us prove that this
+Closure can be defined in an equivalent way: $\bigcap\{ Y
+\subseteq M| Y\supseteq X \and  Y\hbox{ is closed}\}$. Let us prove that this
 definition is equivalent to the previous one (for definition's sake, $\bigcap 
 \emptyset = M$). First, note that $\overline X$ is closed: if $\rho(x,\overline 
-X) = 0$, then there is $y\in \overline X$ so that $\rho(x,y) = 0$; and $z \in 
-X$ so that $\rho(y,z) = 0$, triangle inequality gives us $\rho(x,X) = 0$
-and by definition of closure is $x$ in $\overline X$. Therefore, $\bigcap\{Y\}
+X) = 0$, then for every $\varepsilon > 0$ there is $y\in \overline X$ so that
+$\rho(x,y) < \varepsilon$; but $\rho(y,X) = 0$ and thus $\rho(x,X) <
+\varepsilon$ (by triangle inequality). By definition of closure is $x$ in
+$\overline X$, therefore $\bigcap\{Y\}
 \subseteq \overline X$. On the other hand, if $x$ is in $\overline X$, then 
 by the definition of closure $\rho(x,X) = 0$ which means that $\rho(x,Y) = 0$ 
 for all $Y\in \bigcap\{Y\}$ (because $Y$ is superset of $X$, and distance can 

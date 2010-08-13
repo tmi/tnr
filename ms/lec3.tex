@@ -4,7 +4,7 @@
 % epsilon sit
 \tpc{Totally bounded spaces} Let $(M,\rho)$ be a metric space and 
 $\varepsilon>0$, then we call $N\subseteq M$ an $\varepsilon$-net 
-if $\forall x,y \in M,\ x\neq y \imply \rho(x,y) \geq \varepsilon$. 
+if $\forall x,y \in N,\ x\neq y \imply \rho(x,y) \geq \varepsilon$. 
 $(M,\rho)$ is {\it totally bounded}, if every $\varepsilon$-net 
 is finite. For example, $(0,1)$ is totally bounded for $\rho=|x-y|$,
 but $\R$ in such metrics is not (therefore, totally bounded space 
@@ -15,12 +15,12 @@ bounded too (clearly any $\varepsilon$-net in $N$ is still a net in
 $M$). Also, if $(N,\rho_{N}),\ N\subseteq M$ is totally bounded,
 then $(\overline N,\rho_{\overline N})$ is totally bounded. To see 
 this, we take a $\varepsilon$-net $X$ in $\overline N$. For every 
-$x$ in $\overline N \bs N$ there is $x'$ in $N$ such that $\rho(x,x')
-< \varepsilon/3$ and call this substituted set $X'$. Such $x'$ is 
-unique for every $x$, since $X$ was an $\varepsilon$-net. Even 
-more, $\rho(x',y)\leq \varepsilon/3$ for any $y\in X'$ due to triangle 
+$x\in X$ in $\overline N \bs N$ there is $x'$ in $N$ such that $\rho(x,x')
+< \varepsilon/3$. We call this substituted set $X'$. No $x_1$ and $x_2 \in X\cap
+(\overline N \bs N)$ get the same $x'$, since $X$ was an $\varepsilon$-net. Even
+more, $\rho(x',y)> \varepsilon/3$ for any other $y\in X'$ due to triangle 
 inequality. Therefore, we can assign to any $\varepsilon$-net in 
-$\overline N$ a $\varepsilon$-net in $N$ of the same cardinality.
+$\overline N$ an $\varepsilon/3$-net in $N$ of the same cardinality.
 \smallskip
 Let $(M_i,\rho_i)_{i\in \N}$ be a family of non-empty metric spaces,
 such that $\rho_i \leq 1$ for every $i$. Then $\prod_{i\in \N} 
@@ -70,7 +70,7 @@ For totally bounded $(M,\rho)$ and $f:\ (M,\rho)\to (\R,|x-y|)$ uniformly
 continuous, $f[M]$ is bounded subset of $\R$. If it were unbounded, 
 we could assume that $\forall n\in \N\ \exists x_n\in X\ f(x_n)>n$. 
 But then, $\forall n,m\in \N\ |f(x_n)-f(x_m)|\geq 1$. Since $f$ is 
-uniformly convergent, $\rho(x,y)< \delta \imply |f(x)-f(y)|<1/2$; and 
+uniformly continuous , $\rho(x,y)< \delta \imply |f(x)-f(y)|<1/2$; and 
 for finite cover of $M$ with $\delta/2$ balls we get that one ball 
 cannot contain more than one $x_n$.
 \qed

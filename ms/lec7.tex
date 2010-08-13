@@ -18,19 +18,19 @@ a $\imply$ g: trivial, since $g$ is special case of $a$.
 \smallskip
 e $\imply$ c: let $X$ be a set without limit point, i.e. $\forall x\ 
 \exists \varepsilon\ |B(x,\varepsilon)\cap X| < \infty$. Specially, 
-we can say that $X=\{x_i\},\ \forall i\ \exists \varepsilon_i\ B(x_i,
-\varepsilon_i)\cap X = \{x_i\}$. If we set $\delta_i = \min\{\varepsilon/3,
+we can say that $X=\{x_i;\, i\in \alpha\},\ \forall i\ \exists \varepsilon_i\ B(x_i,
+\varepsilon_i)\cap X = \{x_i\}$. If we set $\delta_i = \min\{\varepsilon_i/3,
 1/n\}$, then $B(x_i,\delta_i)$ are pairwise disjoint and $\forall x\in M
 \ \exists \varepsilon(x)\ B(x,\varepsilon)$ intersects only finitely many 
-$B(x_i,\delta_i)$. Now, we define $f_n(x) = \rho(x,X\bs B(x_n,\delta_n))$ --
-this $f$ is continous, as it is defined from metrics; for $x\not\in X$ equals 
-0 and $f(x_i) \geq \delta_n$. Then, $F(x)=\sum n\cdot 1/\delta_n \cdot 
+$B(x_i,\delta_i)$. Now, we define $f_n(x) = \rho(x,M\bs B(x_n,\delta_n))$ --
+this $f$ is continous, as it is defined from metrics; for $x\not\in B(x_n,\delta_n)$ 
+equals 0, for $x_n$ it is $\geq \delta_n$. Then, $F(x)=\sum n\cdot 1/\delta_n \cdot 
 f_n(x)$ is continous as a sum of continous functions (note that $\forall x\ 
 F(x)$ is determined only by finitely many $f_n(x)$ since $f_n(x)$ is non-zero 
 only for $x\in B(x_i,\delta_i)$); and therefore has to be bounded. But as 
-$F(x_n) \geq n$, we get that $X$ was finite.
+$F(x_n) \geq n$, we get that $\alpha$ was finite.
 \smallskip
-c $\imply$ a: let $\cal C$ is open cover of $M$. First, we prove an 
+c $\imply$ a: let $\cal C$ be an open cover of $M$. First, we prove an 
 auxilliary lemma:
 $$(\exists \varepsilon > 0)(\forall x\in M)(\exists C\in {\cal C})(B(x,
 	\varepsilon)\subseteq C) \leqno (*)$$
@@ -65,10 +65,24 @@ g $\imply$ {\tt to be finished}
 {\it Proof:} Any compact space has to be totally bounded, since we can pick
 cover $\{B(x,\varepsilon);x\in M\}$ which has a finite subcover $S$. A
 $\varepsilon$-net cannot have more than one point in each of balls in $S$,
-therefore has to be finite. Any compact space has to be complete, since a
-non-complete space {\tt something with Cantor theorem}.
+therefore has to be finite. Any compact space has to be complete, since from
+Cauchy $x_n$ we can choose a subsequence $x_{n_i}$ with limit $l$; and there is
+$n_0$, such that $\forall n_i > n_0\ \rho(x_{n_i},l) < \varepsilon/2$ and
+$\forall m,n > n_0\ \rho(x_n,x_m) < \varepsilon/2$. Then is $\forall n>n_0 \
+\rho(x_n,l) \leq \rho(x_n,x_{n_i}) + \rho(x_{n_i},l) < \varepsilon$ for some
+$n_i > n_0$.
 
-Now for the other implication, {\tt to be finished}.
+Now for the other implication, we show that in totally bounded space we can
+always choose a Cauchy subsequence, which is convergent due to completness. Let
+$P$ denote the range of $x_n$, if $P$ is finite, we are done. Otherwise, let 
+$M(1/n)$ denote a finite cover with $1/n$-balls (some inclusion-maximall
+$1/n$-net). We choose $m_1\in M(1)$ such that $P_1 = P\cap B_1(m_1)$ is infinite
+(there is such, since $P$ is infinite and $M(1)$ is cover), and $k_1$ such that
+$x_{k_1} \in P_1$. Inductively, we construct infinite $P_i = P_{i-1} \cap
+B_{1/i}(m_i \in M(1/i))$ and $x_{k_i} \in P_i$. Then, $x_{k_i}$ is Cauchy, since
+for given $\varepsilon > 1/2n$ we have $\forall k_i, k_j > k_n\ x_{k_i},x_{k_j}
+\in B_{1/n}(m_n)$.
+
 \qed
 
 \proclaim Corollary. Closed subset of compact space is compact; product of
@@ -82,7 +96,7 @@ $a<b$ and $K\subseteq [a,b]^n$. But $[a,b]^n$ is complete and totally bounded,
 therefore it is compact, therefore its closed subset is compact.
 \qed
 
-\proclaim Theorem. For metric space $(N,\sigma)$, compact metric space
+{\bf Theorem.} For metric space $(N,\sigma)$, compact metric space
 $(M,\rho)$ and $f\,:M\to N$ which is continuous and onto is $(N,\sigma)$
 compact. 
 
@@ -93,13 +107,14 @@ open cover of $M$. Therefore we have $H'$ a finite subcover, and its image is a
 finite subset of $G$ and still an open cover of $N$.
 \qed
 
-\proclaim Theorem. Let $(M,\rho)$ be a compact space, $f$ continous; then $f$
+{\bf Theorem.} Let $(M,\rho)$ be a compact space, $f$ continous; then $f$
 is uniformly continous.
 
 {\it Proof:} $(\forall \varepsilon>0)(\forall x)(\exists \delta_x)$ such that 
-$f[B(x,\delta_x)]$ is open. Clearly, $B(x,\delta_x/2)$ form an open cover,
+$f[B(x,\delta_x)] \subseteq B(f(x),\varepsilon/2)$. Clearly, $B(x,\delta_x)$ 
+form an open cover,
 therefore there is its finite subcover $S$. Take $\delta =
-\min\{\delta_x/2;B(x,\delta_x/2)\in S\}$, and watch: $\rho(x,y) < \delta
-\imply x,y \in B(z,\delta_z),\ B(z,\delta_z/2)\in S \imply \sigma(f(x),f(y))
-\leq \sigma(f(x),f(z)) + \sigma(f(y),f(z)) \leq 2\varepsilon$.
+\min\{\delta_x/2;B(x,\delta_x)\in S\}$, and watch: $\rho(x,y) < \delta
+\imply x,y \in B(z,\delta_z),\ B(z,\delta_z)\in S \imply \sigma(f(x),f(y))
+\leq \sigma(f(x),f(z)) + \sigma(f(y),f(z)) \leq \varepsilon$.
 \qed
